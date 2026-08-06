@@ -1,1 +1,0 @@
-console.log('Adventure module initialized.');

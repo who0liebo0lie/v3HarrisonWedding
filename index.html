@@ -1,1 +1,30 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harrison Set Sail</title><link rel="stylesheet" href="assets/css/styles.css"></head><body><main class="gate"><section class="gate-card card"><div class="eyebrow">Welcome to Julia & Wesley's</div><h1>Wedding <span>Adventure</span></h1><p>We’re so excited to share all the details for our wedding adventure.</p><h2 class="serif">Yes!! You’re invited.</h2><form id="gateForm" class="gate-form"><div class="field"><label>First name</label><input name="first" autocomplete="given-name" placeholder="Enter your first name"></div><div class="field"><label>Last name</label><input name="last" autocomplete="family-name" placeholder="Enter your last name"></div><button class="btn">⚓ THAT’S ME!</button></form><div class="gate-error" aria-live="polite"></div><p class="script" style="font-size:2rem;color:var(--pink)">We’re so excited that you’re here!</p></section></main><script src="assets/js/gate.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Julia & Wesley</title><link rel="stylesheet" href="css/site.css?v=21"></head><body>
+<section class="welcome-gate" id="welcome-gate" aria-labelledby="welcome-title">
+  <div class="welcome-card">
+    <div class="welcome-anchor">⚓</div>
+    <p class="eyebrow">Julia & Wesley</p>
+    <h1 id="welcome-title">Welcome aboard</h1>
+    <p>Please enter your first and last name to open your invitation.</p>
+    <form id="welcome-form">
+      <label>First name<input id="first-name" name="firstName" autocomplete="given-name" required></label>
+      <label>Last name<input id="last-name" name="lastName" autocomplete="family-name" required></label>
+      <button type="submit">Confirm guest</button>
+    </form>
+    <p class="welcome-error" id="welcome-error" aria-live="polite"></p>
+  </div>
+</section>
+<section class="intro" id="intro" aria-label="Cinematic introduction" hidden>
+  <div class="intro-layer intro-garden"></div><div class="intro-layer intro-glow"></div><div class="sparkles" aria-hidden="true"></div><div class="intro-layer intro-final"></div>
+  <div class="intro-welcome" id="intro-welcome"></div>
+  <button class="sound" type="button">Sound on</button><button class="skip" type="button">Skip intro</button><audio id="intro-audio" loop src="assets/audio/intro.wav"></audio>
+</section>
+<main class="page-shell landing-shell"><img class="approved-page" src="assets/approved/landing-page.png" alt="Julia and Wesley wedding invitation landing page">
+<nav class="landing-nav" aria-label="Main navigation">
+  <a href="our-story.html">Our Story</a>
+  <a href="adventure.html">The Adventure</a>
+  <a href="explore.html">Explore</a>
+  <a href="travel.html">Travel</a>
+  <a href="rsvp.html">RSVP</a>
+</nav>
+<a class="hotspot rsvp-now-hotspot" aria-label="RSVP now" href="rsvp.html"></a>
+</main><script src="js/intro.js"></script></body></html>

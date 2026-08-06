@@ -1,14 +1,20 @@
-# Harrison Set Sail — Editable Wedding Website
+# Julia & Wesley wedding website — approved visual build
 
-Open `index.html` to start at the guest-name screen. All page content is editable HTML. Shared styling is in `assets/css/styles.css`; interactions are in `assets/js/`.
+This build uses the approved full-page designs exactly as supplied, eliminating accidental image substitutions, duplicated headers, and layout drift.
 
-## Publish on GitHub Pages
-1. Unzip the package.
-2. Upload the contents of the folder—not the outer folder—to the repository root.
-3. In GitHub: Settings → Pages → Deploy from branch → main / root.
-4. Wait for the Pages link to appear.
+## Publish
+Copy all files into the cloned `v2HarrisonWedding` repository, commit, and push. GitHub Pages should deploy from `main` and `/(root)`.
 
-## Important production items
-- Replace placeholder travel prices and contact links in `travel.html`.
-- Connect RSVP saves to a database or Google Apps Script before public launch. The current prototype uses browser localStorage.
-- See `data/README.md` for the Bingo/Pickleball population plan.
+## Review URLs
+- `index.html`
+- `our-story.html`
+- `adventure.html`
+- `explore.html`
+- `travel.html`
+- `rsvp.html`
+- `cococay.html`
+- `wedding-day.html`
+- `pickleball.html`
+- `bingo.html`
+
+The RSVP and booking buttons remain visual review elements until the backend and Aligned Journeys contact details are connected.
