@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pickleball | Julia & Wesley</title>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;600;700&family=Libre+Franklin:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body style="border:none; margin:0; padding:0;">
+  <header class="site-header">
+    <a href="index.html" class="header-logo">HARRISON <span>Set Sail</span> ⚓</a>
+    <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="our-story.html">OUR STORY</a></li>
+        <li><a href="adventure.html" class="active">THE ADVENTURE</a></li>
+        <li><a href="explore.html">EXPLORE</a></li>
+        <li><a href="travel.html">TRAVEL</a></li>
+        <li><a href="rsvp.html">RSVP</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container-full" style="padding: 3rem 4rem;">
+    <div class="text-center" style="margin-bottom:3rem;">
+      <h1>The Dink Before “I Do”</h1>
+      <p class="script-accent">Julia & Wesley's Pickleball Tournament</p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="card" style="max-width:800px; margin:0 auto 3rem; padding:3rem;">
+      <h2 style="margin-bottom:1.5rem; text-align:center;">Register Your Team</h2>
+      <form id="pickleball-register-form">
+        <div class="form-group">
+          <label for="player1-name">PLAYER 1 (YOU)</label>
+          <input type="text" id="player1-name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="player2-name">PLAYER 2 (PARTNER - OPTIONAL)</label>
+          <input type="text" id="player2-name" class="form-control" placeholder="Partner's Name (Leave blank to request a partner)">
+        </div>
+        <div class="form-group">
+          <label for="team-name">TEAM NAME</label>
+          <input type="text" id="team-name" class="form-control" placeholder="Enter creative team name">
+        </div>
+        <div class="text-center" style="margin-top:2rem;">
+          <button type="submit" class="btn-primary">SUBMIT OUR TEAM</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Clickable FAQs -->
+    <div class="card" style="max-width:800px; margin:0 auto; padding:3rem;">
+      <h2 style="margin-bottom:1.5rem; text-align:center;">Tournament FAQs</h2>
+      
+      <div style="margin-bottom:1rem;">
+        <button type="button" class="faq-question-btn" style="width:100%; text-align:left; background:var(--color-linen); border:1px solid #ccc; padding:1rem; border-radius:8px; font-weight:bold; cursor:pointer;">Do I need to bring a paddle?</button>
+        <div class="faq-answer" style="display:none; padding:1rem; background:#fff; border:1px solid #eee; border-radius:8px; margin-top:0.3rem;">Paddles and balls will be fully provided on the ship's sports deck!</div>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <button type="button" class="faq-question-btn" style="width:100%; text-align:left; background:var(--color-linen); border:1px solid #ccc; padding:1rem; border-radius:8px; font-weight:bold; cursor:pointer;">Can beginners play?</button>
+        <div class="faq-answer" style="display:none; padding:1rem; background:#fff; border:1px solid #eee; border-radius:8px; margin-top:0.3rem;">Absolutely! All skill levels are welcome for fun, laughs, and glory.</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/pickleball.js"></script>
+</body>
+</html>
