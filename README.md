@@ -1,9 +1,20 @@
-# Julia & Wesley’s Wedding Website
+# Julia & Wesley wedding website — approved visual build
 
-A responsive, interactive wedding website designed for **Julia & Wesley's Wedding Cruise** aboard Royal Caribbean's *Harmony of the Seas*.
+This build uses the approved full-page designs exactly as supplied, eliminating accidental image substitutions, duplicated headers, and layout drift.
 
-## 🚀 GitHub Pages Deployment
-1. Download or clone this repository.
-2. Upload all files directly to the root branch (`main` or `gh-pages`) of your GitHub repository.
-3. Enable GitHub Pages under Repository Settings -> Pages.
-4. Your site will immediately be live! No build scripts (`npm run build`) or node servers required.
+## Publish
+Copy all files into the cloned `v2HarrisonWedding` repository, commit, and push. GitHub Pages should deploy from `main` and `/(root)`.
+
+## Review URLs
+- `index.html`
+- `our-story.html`
+- `adventure.html`
+- `explore.html`
+- `travel.html`
+- `rsvp.html`
+- `cococay.html`
+- `wedding-day.html`
+- `pickleball.html`
+- `bingo.html`
+
+The RSVP and booking buttons remain visual review elements until the backend and Aligned Journeys contact details are connected.

@@ -1,54 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>RSVP | Julia & Wesley</title>
-  <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;600;700&family=Libre+Franklin:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css?v=20">
 </head>
-<body>
-  <header class="site-header">
-    <a href="index.html" class="header-logo">HARRISON <span>Set Sail</span> ⚓</a>
-    <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="our-story.html">OUR STORY</a></li>
-        <li><a href="adventure.html">THE ADVENTURE</a></li>
-        <li><a href="explore.html">EXPLORE THE SHIP</a></li>
-        <li><a href="travel.html">TRAVEL INFO</a></li>
-        <li><a href="rsvp.html" class="active">RSVP</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="rsvp-body rsvp-luxe-body">
+  <nav class="real-nav rsvp-nav" aria-label="Primary navigation">
+    <a class="nav-anchor" href="index.html?skip=1">⚓</a>
+    <a href="index.html?skip=1">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="adventure.html">The Adventure</a>
+    <a href="explore.html">Explore the Ship</a>
+    <a href="travel.html">Travel & Booking</a>
+    <a href="rsvp.html" aria-current="page">RSVP</a>
+  </nav>
 
-  <main class="container">
-    <div class="text-center" style="margin-bottom:2rem;">
-      <h1>Will You Set Sail With Us?</h1>
-      <p class="script-accent">Please respond by September 15, 2026</p>
-    </div>
+  <main class="rsvp-luxe-shell">
+    <section class="rsvp-luxe-card rsvp-option-two" aria-labelledby="rsvp-title">
+      <img class="rsvp-floral rsvp-floral-tl" src="assets/rsvp-v19/top-left.png" alt="">
+      <img class="rsvp-floral rsvp-floral-tr" src="assets/rsvp-v19/top-right.png" alt="">
+      <img class="rsvp-floral rsvp-floral-bl" src="assets/rsvp-v19/bottom-left.png" alt="">
+      <img class="rsvp-floral rsvp-floral-br" src="assets/rsvp-v19/bottom-right.png" alt="">
 
-    <form id="rsvp-form" class="card" style="max-width:800px; margin:0 auto;">
-      <div class="form-group">
-        <label for="guest-count-select">How many guests are you responding for?</label>
-        <select id="guest-count-select" class="form-control">
-          <option value="1">1 Guest</option>
-          <option value="2">2 Guests</option>
-          <option value="3">3 Guests</option>
-          <option value="4">4 Guests</option>
-        </select>
-      </div>
+      <header class="rsvp-luxe-header">
+        <div class="rsvp-anchor" aria-hidden="true">⚓</div>
+        <p class="rsvp-kicker">Julia &amp; Wesley</p>
+        <h1 id="rsvp-title">Will you set sail with us?</h1>
+        <div class="rsvp-divider"><span>✿</span></div>
+        <p class="rsvp-deadline">Please respond by <strong>September 15, 2026</strong></p>
+        <p class="rsvp-personal" id="rsvp-welcome">Welcome aboard!</p>
+      </header>
 
-      <div id="dynamic-guests-container"></div>
+      <form class="rsvp-luxe-form" id="rsvp-form">
+        <section class="rsvp-section" aria-labelledby="responding-heading">
+          <h2 id="responding-heading">Who’s responding</h2>
+          <div class="rsvp-two-col">
+            <label>First name<input name="firstName" id="first-name" autocomplete="given-name" required></label>
+            <label>Last name<input name="lastName" id="last-name" autocomplete="family-name" required></label>
+          </div>
+        </section>
 
-      <div class="text-center" style="margin-top:2rem;">
-        <button type="submit" class="btn-primary">SUBMIT MY RSVP</button>
-      </div>
-    </form>
+        <section class="rsvp-section" aria-labelledby="attendance-heading">
+          <h2 id="attendance-heading">Are you joining us?</h2>
+          <div class="rsvp-choice-row">
+            <label class="rsvp-radio-card"><input type="radio" name="attendance" value="yes" required><span class="choice-mark">✓</span><strong>Yes, we’re in!</strong><small>We can’t wait.</small></label>
+            <label class="rsvp-radio-card"><input type="radio" name="attendance" value="no"><span class="choice-mark">♡</span><strong>Sadly, no</strong><small>We’ll miss this adventure.</small></label>
+          </div>
+        </section>
+
+        <section class="rsvp-section" aria-labelledby="activities-heading">
+          <h2 id="activities-heading">Planned activities</h2>
+          <p class="section-help">Select everything you are excited to join.</p>
+          <div class="activity-grid">
+            <label class="activity-card"><input type="checkbox" name="activities" value="white-party"><span class="activity-check">✓</span><span class="activity-icon">🍸</span><strong>Welcome White Party</strong><small>Jan 23 · 7:00 PM</small></label>
+            <label class="activity-card"><input type="checkbox" name="activities" value="pickleball"><span class="activity-check">✓</span><span class="activity-icon">🏓</span><strong>Pickleball Tournament</strong><small>First round Jan 23</small></label>
+            <label class="activity-card"><input type="checkbox" name="activities" value="bingo"><span class="activity-check">✓</span><span class="activity-icon">▦</span><strong>Bingo Adventure</strong><small>Virtual game</small></label>
+            <label class="activity-card"><input type="checkbox" name="activities" value="wedding"><span class="activity-check">✓</span><span class="activity-icon">🏆</span><strong>Wedding &amp; Finals</strong><small>Jan 26–27</small></label>
+          </div>
+        </section>
+
+        <aside class="aligned-card" aria-label="Cruise booking information">
+          <div class="aligned-compass">✦</div>
+          <div>
+            <p class="aligned-name">Aligned <span>Journeys</span></p>
+            <p>Cruise reservations are handled separately through Aligned Journeys.</p>
+          </div>
+          <a href="travel.html">View Travel &amp; Booking →</a>
+        </aside>
+
+        <section class="rsvp-section" aria-labelledby="bingo-heading">
+          <h2 id="bingo-heading">Your Bingo clue</h2>
+          <label class="sr-label" for="bingo-fact">Share one surprising or fun fact about yourself.</label>
+          <textarea id="bingo-fact" name="bingoFact" rows="3" placeholder="Share one surprising or fun fact about yourself."></textarea>
+        </section>
+
+        <section class="rsvp-section" aria-labelledby="message-heading">
+          <h2 id="message-heading">Anything you’d like us to know?</h2>
+          <label class="sr-label" for="guest-message">Questions or comments</label>
+          <textarea id="guest-message" name="message" rows="4" placeholder="Celebrating something? Traveling with another guest? Leave us a note here."></textarea>
+        </section>
+
+        <button class="rsvp-submit" type="submit"><span aria-hidden="true">⚓</span> Send Our RSVP</button>
+        <p class="rsvp-script">Counting down the days! ♡</p>
+        <div class="rsvp-confirmation" id="rsvp-confirmation" hidden role="status" aria-live="polite">
+          <span class="confirmation-flower">✿</span>
+          <h2>You’re on the guest list!</h2>
+          <p>We can’t wait to celebrate with you aboard <em>Harmony of the Seas</em>.</p>
+          <p class="review-note">This design-review form is not connected to the private RSVP backend yet.</p>
+        </div>
+      </form>
+    </section>
   </main>
 
-  <script src="js/navigation.js"></script>
-  <script src="js/rsvp.js"></script>
+  <script>
+    const stored = (localStorage.getItem('weddingGuestName') || '').trim();
+    const first = document.querySelector('#first-name');
+    const last = document.querySelector('#last-name');
+    const welcome = document.querySelector('#rsvp-welcome');
+    if (stored) {
+      const parts = stored.split(/\s+/);
+      first.value = parts.shift() || '';
+      last.value = parts.join(' ');
+      welcome.textContent = `Welcome aboard, ${first.value}!`;
+    }
+    [first,last].forEach(input => input.addEventListener('input', () => {
+      const name = `${first.value} ${last.value}`.trim();
+      if (name) localStorage.setItem('weddingGuestName', name);
+      welcome.textContent = first.value ? `Welcome aboard, ${first.value}!` : 'Welcome aboard!';
+    }));
+    document.querySelector('#rsvp-form').addEventListener('submit', event => {
+      event.preventDefault();
+      document.querySelector('#rsvp-confirmation').hidden = false;
+      document.querySelector('#rsvp-confirmation').scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  </script>
 </body>
 </html>
