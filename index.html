@@ -49,6 +49,16 @@
 <main class="page-shell landing-shell"><img class="approved-page" src="assets/approved/landing-page-v2.png" alt="Julia and Wesley wedding invitation landing page">
 </main>
 
+<script src="js/forms.js"></script>
+<script>
+(function () {
+  try {
+    var g = new URLSearchParams(location.search).get('g');
+    if (g && typeof trackWeddingEvent === 'function')
+      trackWeddingEvent({ type: 'open', Event: 'Invitation link opened' });
+  } catch (_) {}
+})();
+</script>
 <script>
 (function () {
   var gate = document.getElementById('welcome-gate');
@@ -62,6 +72,8 @@
     var l = document.getElementById('last-name').value.trim();
     if (!f || !l) { err.textContent = 'Please enter both your first and last name.'; return; }
     try { localStorage.setItem('weddingGuestName', f + ' ' + l); } catch (_) {}
+    if (typeof trackWeddingEvent === 'function')
+      trackWeddingEvent({ type: 'open', Event: 'Signed in on welcome screen', Name: f + ' ' + l });
     dismiss();
   });
 })();

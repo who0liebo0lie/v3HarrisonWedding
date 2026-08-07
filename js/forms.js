@@ -1,35 +1,59 @@
-/* Shared submission helper for RSVP + Pickleball forms.
-   HOW TO RECEIVE RESPONSES (pick one):
-   1) Formspree (recommended, free): create a form at formspree.io,
-      paste its URL below as ENDPOINT, e.g. "https://formspree.io/f/abcdwxyz".
-      Responses arrive in your email/inbox dashboard as they're submitted.
-   2) Leave ENDPOINT empty: submitting opens the guest's email app with a
-      pre-filled message addressed to EMAIL below. Set EMAIL to yours. */
+/* ============================================================
+   ONE PLACE TO CONFIGURE WHERE RESPONSES GO
+   ============================================================
+   Option A (recommended, free, unlimited): Google Sheet
+     Follow SETUP-RESPONSES.md, then paste your Apps Script
+     Web-app URL below (it ends in /exec).
+   Option B: leave ENDPOINT empty and set EMAIL — submitting
+     opens the guest's email app with answers pre-filled.     */
 window.WEDDING_FORMS = {
-  ENDPOINT: "",                                  // <- paste Formspree URL here
-  EMAIL: "harrisonsetsail@gmail.com"             // <- fallback mailto address
+  ENDPOINT: "",   // e.g. "https://script.google.com/macros/s/XXXX/exec"
+  EMAIL: "harrisonsetsail@gmail.com"
 };
 
-async function sendWeddingForm(subject, data){
-  const cfg = window.WEDDING_FORMS;
+/* Which invitation link was used (?g=smith-family) — remembered
+   so RSVPs can be matched to the right household. */
+(function () {
+  try {
+    var g = new URLSearchParams(location.search).get('g');
+    if (g) localStorage.setItem('weddingInviteCode', g);
+  } catch (_) {}
+})();
+function inviteCode() {
+  try { return localStorage.getItem('weddingInviteCode') || ''; } catch (_) { return ''; }
+}
+
+/* Fire-and-forget event (invitation opens). Never throws. */
+function trackWeddingEvent(data) {
+  var cfg = window.WEDDING_FORMS;
+  if (!cfg.ENDPOINT) return;
+  data['Invite code'] = data['Invite code'] || inviteCode();
+  data['Page'] = location.pathname.split('/').pop() || 'index.html';
+  try {
+    fetch(cfg.ENDPOINT, { method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
+  } catch (_) {}
+}
+
+/* Form submissions (RSVP, pickleball). */
+async function sendWeddingForm(subject, data, type) {
+  var cfg = window.WEDDING_FORMS;
+  data = Object.assign({ type: type || 'other', 'Invite code': inviteCode() }, data);
   if (cfg.ENDPOINT) {
-    const res = await fetch(cfg.ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({ _subject: subject, ...data })
-    });
-    if (!res.ok) throw new Error("Submission failed");
-    return "sent";
+    /* text/plain + no-cors avoids CORS preflight; Apps Script receives it fine. */
+    await fetch(cfg.ENDPOINT, { method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
+    return 'sent';
   }
-  // mailto fallback
-  const lines = [];
-  (function flat(obj, prefix){
-    for (const [k,v] of Object.entries(obj)){
-      if (v && typeof v === "object") flat(v, prefix + k + " ");
-      else lines.push(`${prefix}${k}: ${v}`);
+  var lines = [];
+  (function flat(obj, p) {
+    for (var k in obj) {
+      var v = obj[k];
+      if (v && typeof v === 'object') flat(v, p + k + ' ');
+      else lines.push(p + k + ': ' + v);
     }
-  })(data, "");
-  const href = `mailto:${cfg.EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-  window.location.href = href;
-  return "mailto";
+  })(data, '');
+  location.href = 'mailto:' + cfg.EMAIL + '?subject=' + encodeURIComponent(subject) +
+                  '&body=' + encodeURIComponent(lines.join('\n'));
+  return 'mailto';
 }

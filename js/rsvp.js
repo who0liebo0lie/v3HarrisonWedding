@@ -85,7 +85,7 @@
     if (note) data['Message'] = note;
     status.textContent = 'Sending your RSVP…';
     try {
-      const how = await sendWeddingForm('Wedding RSVP', data);
+      const how = await sendWeddingForm('Wedding RSVP', data, 'rsvp');
       status.textContent = how === 'sent'
         ? "You're on the guest list! We can't wait to celebrate with you. ⚓"
         : 'Almost there — hit send in the email that just opened.';

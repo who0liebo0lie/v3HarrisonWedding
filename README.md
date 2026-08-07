@@ -13,7 +13,7 @@ Static site: open `index.html` (or host the folder on GitHub Pages / Netlify).
 - **Travel & Booking**: ship photo removed — replaced with a styled title band; FAQs still clickable.
 - **RSVP**: fully functional — guest count selector, per-guest Yes/No for Welcome Party, Bingo, Pickleball, and Wedding, bingo clue per guest, optional message, and the "Your presence is the present" Zelle note.
 
-## ⚠️ Receiving RSVP + Pickleball submissions
+## ⚠️ Receiving RSVP + Pickleball submissions — see SETUP-RESPONSES.md (Google Sheet, free, recommended)
 Edit **`js/forms.js`** (top of the file):
 1. **Best:** create a free form at [formspree.io](https://formspree.io), paste its URL into `ENDPOINT`. Submissions then arrive in your inbox/dashboard automatically.
 2. **Or** leave `ENDPOINT` empty and set `EMAIL` to your address — submitting opens the guest's email app with the answers pre-filled (they must press send).

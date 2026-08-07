@@ -13,7 +13,7 @@
     };
     status.textContent = 'Sending…';
     try {
-      const how = await sendWeddingForm('Pickleball team registration', data);
+      const how = await sendWeddingForm('Pickleball team registration', data, 'pickleball');
       status.textContent = how === 'sent'
         ? 'You’re registered! See you on the court 🏓'
         : 'Almost there — hit send in the email that just opened.';
