@@ -524,3 +524,41 @@ body{background:var(--cream);color:var(--ink)}
 .story-inner h1{font-family:"Great Vibes",Georgia,cursive;font-style:normal;font-weight:400}
 .story-inner h2,.rsvp2-head h1{font-family:"Playfair Display",Georgia,serif}
 .rsvp2-script,.gift-frame h2{font-family:"Great Vibes",Georgia,cursive;font-style:normal}
+
+/* ============================================================
+   v24 — Our Story rebuilt to mock proportions; shared logo
+   ============================================================ */
+/* consistent Harrison Set Sail logo in real navs */
+.real-nav{padding:10px 20px;gap:24px}
+.real-nav .nav-logo{display:flex;flex-direction:column;align-items:center;gap:0;line-height:1}
+.real-nav .nav-logo .word{font:700 15px/1 "Playfair Display",Georgia,serif;letter-spacing:.28em;color:#b98a2c}
+.real-nav .nav-logo .script{font:400 24px/1 "Great Vibes",cursive;color:var(--pink);margin:1px 0 0}
+.real-nav .nav-logo .anch{font-size:12px;color:#b98a2c;margin-top:1px}
+.real-nav a{font-size:13px}
+
+/* linen background + compact story layout */
+.story-page{background:#f8f0de;padding:clamp(14px,2.5vw,30px) 16px clamp(40px,5vw,70px)}
+.story-inner{width:min(700px,100%)}
+.story-inner h1{font-size:clamp(44px,6vw,68px);margin:6px 0 0;color:#b98a2c}
+.story-anchor{font-size:20px;margin:2px 0 6px}
+.story-date{font-size:14px;padding:8px 20px;margin:4px 0 16px}
+.chat-card{border-radius:22px;padding:clamp(16px,2.6vw,30px) clamp(14px,2.4vw,28px);display:block;background:#fbf4e4cc}
+/* overlap-proof chat rows: avatar is absolutely positioned in reserved padding */
+.chat-row{position:relative;display:block;margin:0 0 16px;min-height:62px}
+.chat-row:last-child{margin-bottom:2px}
+.chat-row.from-wesley{padding-left:78px;text-align:left}
+.chat-row.from-julia{padding-right:78px;text-align:right}
+.chat-avatar{position:absolute;bottom:2px;width:62px;height:62px;border-width:3px}
+.chat-row.from-wesley .chat-avatar{left:0}
+.chat-row.from-julia .chat-avatar{right:0}
+.chat-bubble{display:inline-block;max-width:min(400px,92%);font-size:clamp(15px,1.6vw,17.5px);padding:12px 16px 7px;vertical-align:bottom}
+.chat-bubble .ru{font-size:clamp(16px,1.7vw,19px)}
+.chat-bubble.emoji-only{font-size:26px;padding:10px 14px 5px}
+.chat-react{width:28px;height:28px;font-size:14px;bottom:-12px;border-color:#f8f0de}
+.story-copy{margin:20px auto 0;max-width:560px;font-size:clamp(15px,1.6vw,17px);line-height:1.5}
+.story-heart-divider{margin:18px 0 4px}
+.story-inner h2{font-size:clamp(26px,3.6vw,38px);margin:8px 0 6px}
+.corner-florals.story-page .fl-tl{width:clamp(90px,13vw,170px)}
+.corner-florals.story-page .fl-tr{width:clamp(100px,15vw,195px)}
+.corner-florals.story-page .fl-bl{width:clamp(95px,14vw,180px)}
+.corner-florals.story-page .fl-br{width:clamp(100px,15vw,190px)}
