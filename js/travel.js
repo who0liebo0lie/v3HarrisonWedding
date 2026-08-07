@@ -1,1 +1,9 @@
-(()=>{const panel=document.querySelector('#faq-answer'),p=panel.querySelector('p');document.querySelectorAll('.faq-hotspots button').forEach(b=>b.addEventListener('click',()=>{p.textContent=b.dataset.answer;panel.hidden=false;}));panel.querySelector('button').addEventListener('click',()=>panel.hidden=true);})();
+document.addEventListener('DOMContentLoaded', () => {
+  const ctaBtns = document.querySelectorAll('.cta-booking');
+  ctaBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Booking Portal Opening Soon! Please contact our travel advisor directly.');
+    });
+  });
+});
