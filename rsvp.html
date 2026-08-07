@@ -1,5 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP</title><link rel="stylesheet" href="assets/css/styles.css"></head><body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="home.html"><strong>HARRISON</strong><span>Set Sail</span></a><button class="menu-btn" aria-label="Open menu">☰</button><nav class="nav"><a href="story.html">OUR STORY</a><a href="adventure.html">THE ADVENTURE</a><a href="explore.html">EXPLORE THE SHIP</a><a href="travel.html">TRAVEL INFO</a><a href="rsvp.html">RSVP</a></nav></div></header>
-<main><section class="page-hero"><div class="container"><h1>Will you set sail with us?</h1><div class="script">We can’t wait to celebrate with you!</div><p>Please respond by September 15, 2026.</p></div></section><section class="section"><div class="container"><form id="rsvpForm" class="rsvp-form"><div class="card panel"><div class="field"><label>How many guests are you responding for?</label><select id="guestCount"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div></div><div id="guestWrap"></div><div class="card panel"><div class="field"><label>Anything else you’d like us to know? (Optional)</label><textarea name="notes" rows="4"></textarea></div></div><p class="note">Guest-list activity will be tracked, including invitation opens and submitted RSVP responses. Bingo fun facts will be used only to create the virtual game experience.</p><div style="text-align:center;margin-top:24px"><button class="btn">⚓ Submit My RSVP</button></div></form><div id="thanks" class="success hidden"><h2 class="serif">Your RSVP has been saved.</h2><p>Thank you—we’re so excited to celebrate with you!</p></div></div></section></main>
-<footer><div class="container"><div class="footer-script">Good vibes. Great people. Unforgettable memories.</div><div>⚓ Julia & Wesley • January 23–28, 2027</div></div></footer><script src="assets/js/site.js"></script>
-<script src="assets/js/rsvp.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="stylesheet" href="css/site.css?v=22"></head>
+<body class="rsvp2-body">
+<nav class="real-nav" aria-label="Primary navigation">
+  <a class="nav-logo" href="index.html?skip=1">HARRISON<span class="script">Set Sail</span></a>
+  <a href="index.html?skip=1">Home</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="adventure.html">The Adventure</a>
+  <a href="explore.html">Explore</a>
+  <a href="travel.html">Travel</a>
+  <a href="rsvp.html" aria-current="page">RSVP</a>
+</nav>
+<main class="rsvp2-shell corner-florals">
+  <img class="fl-tl" src="assets/rsvp-v19/top-left.png" alt="">
+  <img class="fl-tr" src="assets/rsvp-v19/top-right.png" alt="">
+  <img class="fl-bl" src="assets/rsvp-v19/bottom-left.png" alt="">
+  <img class="fl-br" src="assets/rsvp-v19/bottom-right.png" alt="">
+
+  <header class="rsvp2-head">
+    <div class="rsvp-anchor" aria-hidden="true">⚓</div>
+    <h1>Will you set sail with us?</h1>
+    <div class="rsvp2-divider"><span>✿</span></div>
+    <p class="rsvp2-deadline">Please respond by <strong>September 15, 2026</strong></p>
+    <p class="rsvp2-script">We can't wait to celebrate with you!</p>
+  </header>
+
+  <form id="rsvp-form">
+    <div class="rsvp2-bar">
+      <label for="guest-count">How many guests are you responding for?</label>
+      <select id="guest-count">
+        <option>1</option><option selected>2</option><option>3</option><option>4</option>
+        <option>5</option><option>6</option><option>7</option><option>8</option>
+      </select>
+    </div>
+
+    <div id="guests"></div>
+
+    <div class="rsvp2-note">
+      <label for="rsvp-message">Anything else you'd like us to know? (Optional)</label>
+      <textarea id="rsvp-message" rows="3" placeholder="We are beyond excited to celebrate with you in paradise!"></textarea>
+    </div>
+
+    <div class="rsvp2-submit"><button type="submit"><span aria-hidden="true">⚓</span> Submit my RSVP</button></div>
+    <p class="rsvp2-status" id="rsvp-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <section class="gift-frame" aria-label="Gifts">
+    <div class="gift-fl" aria-hidden="true">✿</div>
+    <h2>Your presence is the present</h2>
+    <p>Celebrating with you is more than enough, and no gift is expected.
+    For anyone who would still like to contribute, gifts may be sent by Zelle to
+    <span class="zelle">"HarrisonSetSail"</span>.
+    Please include your name in the memo because we're against random acts of untraceable generosity.</p>
+  </section>
+
+  <div class="rsvp2-footer-anchor" aria-hidden="true">✿ ⚓ ✿</div>
+</main>
+<script src="js/forms.js"></script>
+<script src="js/rsvp.js"></script>
+</body></html>

@@ -1,14 +1,19 @@
-# Harrison Set Sail — Editable Wedding Website
+# Harrison Set Sail — Wedding Website (v22)
 
-Open `index.html` to start at the guest-name screen. All page content is editable HTML. Shared styling is in `assets/css/styles.css`; interactions are in `assets/js/`.
+Static site: open `index.html` (or host the folder on GitHub Pages / Netlify).
 
-## Publish on GitHub Pages
-1. Unzip the package.
-2. Upload the contents of the folder—not the outer folder—to the repository root.
-3. In GitHub: Settings → Pages → Deploy from branch → main / root.
-4. Wait for the Pages link to appear.
+## What changed in v22
+- **Welcome sign-in** redesigned: new wording, Wesley (left) asks first name / Julia (right) asks last name in speech bubbles, "That's me!" ⚓ button, floral corners. **No sound, no slow intro** — the landing page loads immediately after sign-in (or with `index.html?skip=1`).
+- **Landing page**: single white-font header (Home hidden on home page); baked-in RSVP bubble removed from the artwork (`landing-page-clean.png`).
+- **Our Story**: rebuilt as a real page — chat bubbles use Julia & Wesley's portraits, the English translation was removed from Julia's bubble, and the story text was updated. No blue border; content fills the page.
+- **All pages**: full-width, no blue border.
+- **Pickleball**: working "Register as a team" form (one name is enough), sends to Julia & Wes (see below); FAQ row is clickable with answers.
+- **CocoCay**: countdown removed from the footer artwork (`cococay-clean.png`).
+- **Explore**: "View all venues in Central Park" button removed from artwork (`explore-clean.png`); the six tiles (Dining, Drinks, Relaxation, Entertainment, Evenings, Explore) link to Royal Caribbean's Harmony of the Seas pages.
+- **Travel & Booking**: ship photo removed — replaced with a styled title band; FAQs still clickable.
+- **RSVP**: fully functional — guest count selector, per-guest Yes/No for Welcome Party, Bingo, Pickleball, and Wedding, bingo clue per guest, optional message, and the "Your presence is the present" Zelle note.
 
-## Important production items
-- Replace placeholder travel prices and contact links in `travel.html`.
-- Connect RSVP saves to a database or Google Apps Script before public launch. The current prototype uses browser localStorage.
-- See `data/README.md` for the Bingo/Pickleball population plan.
+## ⚠️ Receiving RSVP + Pickleball submissions
+Edit **`js/forms.js`** (top of the file):
+1. **Best:** create a free form at [formspree.io](https://formspree.io), paste its URL into `ENDPOINT`. Submissions then arrive in your inbox/dashboard automatically.
+2. **Or** leave `ENDPOINT` empty and set `EMAIL` to your address — submitting opens the guest's email app with the answers pre-filled (they must press send).

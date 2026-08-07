@@ -1,0 +1,36 @@
+(() => {
+  /* Register-as-a-team form */
+  const form = document.querySelector('#pb-register-form');
+  const status = document.querySelector('#pb-status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const p1 = form.player1.value.trim();
+    if (!p1) { status.textContent = 'Please enter at least one name.'; return; }
+    const data = {
+      "Player 1": p1,
+      "Player 2": form.player2.value.trim() || "(needs a partner — pair me up!)",
+      "Team name": form.teamName.value.trim() || "(to be decided)"
+    };
+    status.textContent = 'Sending…';
+    try {
+      const how = await sendWeddingForm('Pickleball team registration', data);
+      status.textContent = how === 'sent'
+        ? 'You’re registered! See you on the court 🏓'
+        : 'Almost there — hit send in the email that just opened.';
+      if (how === 'sent') form.reset();
+    } catch (_) {
+      status.textContent = 'Hmm, that didn’t go through. Please try again.';
+    }
+  });
+
+  /* Clickable FAQ */
+  const pop = document.querySelector('#faq-pop');
+  const popQ = pop.querySelector('h3');
+  const popA = pop.querySelector('p');
+  document.querySelectorAll('.pb-faq').forEach(b => b.addEventListener('click', () => {
+    popQ.textContent = b.dataset.q;
+    popA.textContent = b.dataset.a;
+    pop.hidden = false;
+  }));
+  pop.querySelector('.faq-close').addEventListener('click', () => pop.hidden = true);
+})();

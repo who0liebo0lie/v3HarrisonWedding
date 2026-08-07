@@ -1,5 +1,31 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pickleball</title><link rel="stylesheet" href="assets/css/styles.css"></head><body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="home.html"><strong>HARRISON</strong><span>Set Sail</span></a><button class="menu-btn" aria-label="Open menu">☰</button><nav class="nav"><a href="story.html">OUR STORY</a><a href="adventure.html">THE ADVENTURE</a><a href="explore.html">EXPLORE THE SHIP</a><a href="travel.html">TRAVEL INFO</a><a href="rsvp.html">RSVP</a></nav></div></header>
-<main><section class="feature-hero"><div><div class="eyebrow">Julia & Wesley's Wedding Tournament</div><h1>The Dink Before <span class="script">“I Do”</span></h1><p>Whether you’re chasing the championship, meeting new friends, or cheering from the sidelines, everyone is invited.</p></div></section><section class="section"><div class="container"><h2 class="section-title">Ready to Rally?</h2><div class="grid three-col"><article class="card panel"><h3>I’m Playing</h3><p>I already have a partner.</p><a class="btn" href="rsvp.html">Grab My Spot</a></article><article class="card panel"><h3>Pair Me Up</h3><p>I need a teammate—hook me up.</p><a class="btn" href="rsvp.html">Find a Partner</a></article><article class="card panel"><h3>I’m Cheering</h3><p>I’ll be there for the good vibes.</p><a class="btn secondary" href="rsvp.html">Count Me In</a></article></div><div class="grid three-col" style="margin-top:24px"><article class="card panel"><h3>Current Teams</h3><div class="placeholder-list">Future registered team names will populate here.</div></article><article class="card panel"><h3>Tournament Timeline</h3><p><strong>Saturday, Jan 23 • 8:00 PM</strong><br>First round</p><p><strong>Wednesday, Jan 27 • 8:00 PM</strong><br>Finals</p></article><article class="card panel"><h3>Bracket</h3><div class="placeholder-list">The live bracket will populate here once teams are finalized.</div></article></div><p class="note" style="margin-top:24px">The page is ready for a future database connection for players, partners, team names, and the bracket.</p></div></section></main>
-<footer><div class="container"><div class="footer-script">Good vibes. Great people. Unforgettable memories.</div><div>⚓ Julia & Wesley • January 23–28, 2027</div></div></footer><script src="assets/js/site.js"></script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Dink Before I Do | Julia & Wesley</title><link rel="stylesheet" href="css/site.css?v=22"></head><body><main class="page-shell"><img class="approved-page" src="assets/approved/pickleball.png" alt="The Dink Before I Do — wedding pickleball tournament">
+<a class="hotspot" aria-label="Home" href="index.html?skip=1" style="left:14%;top:1%;width:10%;height:4%"></a><a class="hotspot" aria-label="Our Story" href="our-story.html" style="left:25%;top:1%;width:13%;height:4%"></a><a class="hotspot" aria-label="The Adventure" href="adventure.html" style="left:39%;top:1%;width:16%;height:4%"></a><a class="hotspot" aria-label="Explore" href="explore.html" style="left:56%;top:1%;width:10%;height:4%"></a><a class="hotspot" aria-label="Travel" href="travel.html" style="left:67%;top:1%;width:9%;height:4%"></a><a class="hotspot" aria-label="RSVP" href="rsvp.html" style="left:76%;top:.3%;width:15%;height:5%"></a>
+
+<a class="hotspot" aria-label="Register as a team — jump to the form" href="#pb-register-form" style="left:5%;top:46.8%;width:14%;height:2.4%"></a>
+<a class="hotspot" aria-label="Pair me up — jump to the form" href="#pb-register-form" style="left:30%;top:46.8%;width:12%;height:2.4%"></a>
+
+<form class="pb-form" id="pb-register-form" novalidate>
+  <h2>❀ &nbsp;REGISTER AS A TEAM&nbsp; ❀</h2>
+  <p class="pb-sub">You + your partner = one amazing team. Flying solo? One name is all we need — we'll pair you up!</p>
+  <label>Player 1 (you)<input name="player1" placeholder="Your name" required></label>
+  <label>Player 2 (your partner — optional)<input name="player2" placeholder="Your partner's name"></label>
+  <label>Team name (get creative!)<input name="teamName" placeholder="Your creative team name"></label>
+  <button type="submit">Register our team</button>
+  <p class="pb-status" id="pb-status" aria-live="polite">Registration closes January 23 at 11:59 PM</p>
+</form>
+
+<div class="faq-hotspots" aria-label="Pickleball FAQs">
+  <button class="pb-faq" data-q="Do I need to bring a paddle?" data-a="Nope! Paddles and balls will be provided on the court, but you're welcome to bring your own lucky paddle if you have one." style="left:2%;top:94.5%;width:18.5%;height:2.4%"></button>
+  <button class="pb-faq" data-q="Can beginners play?" data-a="Absolutely. This is a just-for-fun tournament — first-timers are more than welcome, and we'll go over the basics before the first round." style="left:21.5%;top:94.5%;width:18.5%;height:2.4%"></button>
+  <button class="pb-faq" data-q="Can I switch partners?" data-a="Teams lock in when the bracket is announced on tournament night, but you can switch partners any time before then — just let Julia and Wes know." style="left:41%;top:94.5%;width:18.5%;height:2.4%"></button>
+  <button class="pb-faq" data-q="What if I don't know anyone?" data-a="Register with just your name and we'll match you with a partner. You'll leave the court with new friends, guaranteed." style="left:60.5%;top:94.5%;width:18.5%;height:2.4%"></button>
+  <button class="pb-faq" data-q="What happens if it rains?" data-a="We play on! If weather closes the court, matches simply move to later in the cruise — the bracket travels with us." style="left:80%;top:94.5%;width:18.5%;height:2.4%"></button>
+</div>
+<div class="faq-pop" id="faq-pop" hidden role="dialog" aria-modal="false">
+  <button class="faq-close" aria-label="Close answer">×</button>
+  <h3></h3><p></p>
+</div>
+</main>
+<script src="js/forms.js"></script>
+<script src="js/pickleball.js"></script>
 </body></html>
