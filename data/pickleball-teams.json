@@ -1,0 +1,10 @@
+[
+  {
+    "id": "team-001",
+    "teamName": "The Dink Dynasty",
+    "playerOne": "Julia Porrino",
+    "playerTwo": "Wesley Harrison",
+    "needsPartner": false,
+    "status": "registered"
+  }
+]

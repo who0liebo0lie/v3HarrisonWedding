@@ -17,72 +17,44 @@
       <ul class="nav-menu">
         <li><a href="our-story.html">OUR STORY</a></li>
         <li><a href="adventure.html">THE ADVENTURE</a></li>
-        <li><a href="explore.html">EXPLORE</a></li>
-        <li><a href="travel.html">TRAVEL</a></li>
+        <li><a href="explore.html">EXPLORE THE SHIP</a></li>
+        <li><a href="travel.html">TRAVEL INFO</a></li>
         <li><a href="rsvp.html">RSVP</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Welcome Guest Entry Pop-Up Overlay -->
-  <div id="welcome-modal" class="welcome-overlay" style="display:none;">
-    <div class="welcome-popup-card">
-      <div class="floral-corner floral-tl"></div>
-      <div class="floral-corner floral-tr"></div>
-      <div class="floral-corner floral-bl"></div>
-      <div class="floral-corner floral-br"></div>
-      
-      <button id="close-welcome" class="close-btn" style="position:absolute; top:15px; right:20px; font-size:1.8rem; background:none; border:none; cursor:pointer; z-index:10;">&times;</button>
-      
-      <div class="welcome-popup-body">
-        <h2 style="font-family:var(--font-heading); font-size:2rem; color:var(--color-warm-charcoal);">Welcome to Julia & Wesley's<br><span class="script-accent">Wedding Adventure</span></h2>
-        <p style="margin: 0.8rem 0; font-size:0.95rem; color:#444;">We're so excited to share all the details for our wedding adventure. Including answering all questions along the way.</p>
-        <p style="font-weight:bold; color:var(--color-bougainvillea); font-size:1.1rem; margin-bottom:1rem;">Yes!! You're invited.</p>
-        
-        <form id="guest-entry-form">
-          <div class="welcome-portraits-wrapper">
-            <!-- Left Portrait: Wesley -->
-            <div class="portrait-side">
-              <img src="assets/images/wesley-portrait.jpg" alt="Wesley" class="portrait-img" onerror="this.src='https://via.placeholder.com/120?text=Wesley'">
-              <div class="speech-bubble">First name first?</div>
-            </div>
-
-            <!-- Center Inputs -->
-            <div class="welcome-inputs-center">
-              <div class="form-group">
-                <label for="guest-firstname">FIRST NAME</label>
-                <input type="text" id="guest-firstname" class="form-control" placeholder="Enter your first name" required>
-              </div>
-              <div class="form-group">
-                <label for="guest-lastname">LAST NAME</label>
-                <input type="text" id="guest-lastname" class="form-control" placeholder="Enter your last name" required>
-              </div>
-            </div>
-
-            <!-- Right Portrait: Julia -->
-            <div class="portrait-side">
-              <img src="assets/images/julia-portrait.jpg" alt="Julia" class="portrait-img" onerror="this.src='https://via.placeholder.com/120?text=Julia'">
-              <div class="speech-bubble">And your last name?</div>
-            </div>
-          </div>
-
-          <div style="margin-top:1.5rem;">
-            <button type="submit" class="btn-primary" style="font-size:1.1rem; padding:0.9rem 2.5rem;">⚓ THAT'S ME!</button>
-          </div>
-        </form>
-      </div>
+  <!-- Guest Welcome Modal -->
+  <div id="welcome-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content card">
+      <button id="close-welcome" class="close-btn" aria-label="Close">&times;</button>
+      <h2>Welcome to Julia & Wesley’s<br><span class="script-accent">Wedding Adventure</span></h2>
+      <p>We’re so excited to share all the details for our wedding adventure, including answering all your questions along the way.</p>
+      <p class="invite-tag" style="font-weight:bold; color:var(--color-bougainvillea); margin: 1rem 0;">Yes!! You’re invited.</p>
+      <form id="guest-entry-form">
+        <div class="form-group">
+          <label for="guest-firstname">First Name</label>
+          <input type="text" id="guest-firstname" class="form-control" required placeholder="Enter your first name">
+        </div>
+        <div class="form-group">
+          <label for="guest-lastname">Last Name</label>
+          <input type="text" id="guest-lastname" class="form-control" required placeholder="Enter your last name">
+        </div>
+        <button type="submit" class="btn-primary">THAT’S ME!</button>
+      </form>
+      <p class="form-footer-note" style="margin-top:1rem; font-style:italic;">We’re so excited that you’re here!</p>
     </div>
   </div>
 
-  <!-- Landing Hero Section (Loads Immediately) -->
-  <main class="container-full text-center" style="padding: 6rem 2rem; background: url('assets/images/landing-hero-bg.jpg') center/cover no-repeat;">
+  <!-- Hero Section -->
+  <main class="container text-center" style="padding: 4rem 1rem;">
     <p class="script-accent">A Love Story</p>
-    <h1 style="font-size:3.5rem; margin-bottom:1rem; color:var(--color-warm-charcoal);">Twenty Years In The Making</h1>
-    <p style="letter-spacing:3px; font-weight:600; color:var(--color-bougainvillea); font-size:1.2rem; margin-bottom:3rem;">WE CAN'T WAIT TO SET SAIL WITH YOU</p>
+    <h1 style="font-size:3rem; margin-bottom:1rem;">Twenty Years In The Making</h1>
+    <p class="hero-subtitle" style="letter-spacing:2px; font-weight:600; color:var(--color-bougainvillea);">WE CAN'T WAIT TO SET SAIL WITH YOU</p>
   </main>
 
   <!-- Standardized Landing Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer" id="details">
     <div class="footer-icon-grid">
       <div class="footer-icon-item">
         <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>

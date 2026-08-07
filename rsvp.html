@@ -8,60 +8,44 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;600;700&family=Libre+Franklin:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body style="border:none; margin:0; padding:0;">
+<body>
   <header class="site-header">
     <a href="index.html" class="header-logo">HARRISON <span>Set Sail</span> ⚓</a>
     <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
     <nav>
       <ul class="nav-menu">
-        <li><a href="index.html">HOME</a></li>
         <li><a href="our-story.html">OUR STORY</a></li>
         <li><a href="adventure.html">THE ADVENTURE</a></li>
-        <li><a href="explore.html">EXPLORE</a></li>
-        <li><a href="travel.html">TRAVEL</a></li>
+        <li><a href="explore.html">EXPLORE THE SHIP</a></li>
+        <li><a href="travel.html">TRAVEL INFO</a></li>
         <li><a href="rsvp.html" class="active">RSVP</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container-full" style="padding: 3rem 4rem;">
+  <main class="container">
     <div class="text-center" style="margin-bottom:2rem;">
-      <h1 style="font-size:3rem; font-family:var(--font-heading); color:var(--color-warm-charcoal);">Will you set sail with us?</h1>
-      <p style="font-size:1.1rem; color:var(--color-bougainvillea); margin-top:0.5rem;">Please respond by <strong>September 15, 2026</strong></p>
-      <p class="script-accent" style="margin-top:0.3rem;">We can't wait to celebrate with you!</p>
+      <h1>Will You Set Sail With Us?</h1>
+      <p class="script-accent">Please respond by September 15, 2026</p>
     </div>
 
-    <form id="rsvp-form" style="max-width:900px; margin:0 auto;">
-      <div class="card" style="padding:1.5rem 2rem; margin-bottom:2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
-        <label for="guest-count-select" style="font-weight:600; font-size:1rem;">How many guests are you responding for?</label>
-        <select id="guest-count-select" class="form-control" style="width:120px;">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+    <form id="rsvp-form" class="card" style="max-width:800px; margin:0 auto;">
+      <div class="form-group">
+        <label for="guest-count-select">How many guests are you responding for?</label>
+        <select id="guest-count-select" class="form-control">
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
         </select>
       </div>
 
       <div id="dynamic-guests-container"></div>
 
-      <div class="card" style="padding:2rem;">
-        <label style="font-weight:600; font-size:0.95rem; color:#444;">Anything else you'd like us to know? (Optional)</label>
-        <textarea class="form-control" rows="3" placeholder="We are beyond excited to celebrate with you in paradise!" style="margin-top:0.5rem;"></textarea>
-      </div>
-
-      <div class="text-center" style="margin:2.5rem 0;">
-        <button type="submit" class="btn-primary" style="font-size:1.1rem; padding:1rem 3rem;">⚓ SUBMIT MY RSVP</button>
+      <div class="text-center" style="margin-top:2rem;">
+        <button type="submit" class="btn-primary">SUBMIT MY RSVP</button>
       </div>
     </form>
-
-    <div class="text-center" style="max-width:800px; margin:3rem auto 0; padding-top:2rem; border-top:1px solid rgba(212,175,55,0.4);">
-      <h2 class="script-accent" style="font-size:2.5rem;">Your presence is the present</h2>
-      <p style="margin-top:0.5rem; line-height:1.7; color:#555;">
-        Celebrating with you is more than enough, and no gift is expected.<br>
-        For anyone who would still like to contribute, gifts may be sent by Zelle to <strong style="color:var(--color-bougainvillea);">“HarrisonSetSail”</strong>.<br>
-        Please include your name in the memo because we're against random acts of untraceable generosity.
-      </p>
-    </div>
   </main>
 
   <script src="js/navigation.js"></script>

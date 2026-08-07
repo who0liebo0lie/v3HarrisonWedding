@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('welcome-modal');
+  const modal = document.getElementById('welcome-modal');
   const form = document.getElementById('guest-entry-form');
   const closeBtn = document.getElementById('close-welcome');
 
   const savedGuest = localStorage.getItem('wedding_guest_name');
 
-  if (!savedGuest && overlay) {
-    overlay.style.display = 'flex';
+  if (!savedGuest && modal) {
+    modal.style.display = 'flex';
   }
 
   if (form) {
@@ -19,14 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const fullName = `${firstName} ${lastName}`;
         localStorage.setItem('wedding_guest_name', fullName);
 
-        if (overlay) overlay.style.display = 'none';
+        if (modal) modal.style.display = 'none';
+        updatePersonalization(fullName);
       }
     });
   }
 
-  if (closeBtn && overlay) {
+  if (closeBtn && modal) {
     closeBtn.addEventListener('click', () => {
-      overlay.style.display = 'none';
+      modal.style.display = 'none';
     });
   }
 });
+
+function updatePersonalization(name) {
+  const elements = document.querySelectorAll('.guest-personalized-name');
+  elements.forEach(el => el.textContent = name);
+}

@@ -1,8 +1,4 @@
 @media (max-width: 900px) {
-  .site-header {
-    padding: 1rem 1.5rem;
-  }
-
   .nav-toggle {
     display: block;
   }
@@ -25,18 +21,6 @@
     display: flex;
   }
 
-  .container-full {
-    padding: 1.5rem 1rem;
-  }
-
-  .welcome-portraits-wrapper {
-    flex-direction: column;
-  }
-
-  .portrait-side, .welcome-inputs-center {
-    width: 100%;
-  }
-
   .footer-icon-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -45,6 +29,10 @@
 @media (max-width: 480px) {
   .footer-icon-grid {
     grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 1.25rem 1rem;
   }
 
   .btn-primary {
