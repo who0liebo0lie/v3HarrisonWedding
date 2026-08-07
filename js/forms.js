@@ -7,7 +7,7 @@
    Option B: leave ENDPOINT empty and set EMAIL — submitting
      opens the guest's email app with answers pre-filled.     */
 window.WEDDING_FORMS = {
-  ENDPOINT: "https://script.google.com/macros/s/AKfycbxVf1ZDeSEh_ztoROJPpk6vu4GM1yVqFbLHAfWf9PSdr5CPomlBOaf2r0D9dfgJoxn3/exec",   // e.g. "https://script.google.com/macros/s/XXXX/exec"
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbxVf1ZDeSEh_ztoROJPpk6vu4GM1yVqFbLHAfWf9PSdr5CPomlBOaf2r0D9dfgJoxn3/exec",
   EMAIL: "harrisonsetsail@gmail.com"
 };
 
