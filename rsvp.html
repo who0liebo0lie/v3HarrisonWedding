@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=24"></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=26"></head>
 <body class="rsvp2-body">
 <nav class="real-nav" aria-label="Primary navigation">
   <a class="nav-logo" href="index.html?skip=1"><span class="word">HARRISON</span><span class="script">Set Sail</span><span class="anch">⚓</span></a>
@@ -19,7 +19,7 @@
     <div class="rsvp-anchor" aria-hidden="true">⚓</div>
     <h1>Will you set sail with us?</h1>
     <div class="rsvp2-divider"><span>✿</span></div>
-    <p class="rsvp2-deadline">Please respond by <strong>September 15, 2026</strong></p>
+    <p class="rsvp2-deadline">Please respond by <strong>September 7, 2026</strong></p>
     <p class="rsvp2-script">We can't wait to celebrate with you!</p>
   </header>
 
@@ -40,20 +40,157 @@
     </div>
 
     <div class="rsvp2-submit"><button type="submit"><span aria-hidden="true">⚓</span> Submit my RSVP</button></div>
+    <p class="rsvp2-fineprint">Personalized invitation links are used to confirm invitation delivery, manage attendance, and connect RSVP responses with the correct guest or household.</p>
     <p class="rsvp2-status" id="rsvp-status" role="status" aria-live="polite"></p>
   </form>
 
   <section class="gift-frame" aria-label="Gifts">
     <div class="gift-fl" aria-hidden="true">✿</div>
     <h2>Your presence is the present</h2>
-    <p>Celebrating with you is more than enough, and no gift is expected.
-    For anyone who would still like to contribute, gifts may be sent by Zelle to
-    <span class="zelle">"HarrisonSetSail"</span>.
-    Please include your name in the memo because we're against random acts of untraceable generosity.</p>
+    <p>Celebrating with you is more than enough, and no gift is expected.</p>
+    <p>For anyone who would still like to contribute, gifts may be sent by Zelle to</p>
+    <p class="zelle-line"><span class="zelle">"HarrisonSetSail"</span></p>
+    <p>Please include your name in the memo</p>
+    <p>because we are against random acts of untraceable generosity.</p>
   </section>
 
   <div class="rsvp2-footer-anchor" aria-hidden="true">✿ ⚓ ✿</div>
 </main>
-<script src="js/forms.js"></script>
-<script src="js/rsvp.js"></script>
+<script>
+/* Shared submission helper for RSVP + Pickleball forms.
+   HOW TO RECEIVE RESPONSES (pick one):
+   1) Formspree (recommended, free): create a form at formspree.io,
+      paste its URL below as ENDPOINT, e.g. "https://formspree.io/f/abcdwxyz".
+      Responses arrive in your email/inbox dashboard as they're submitted.
+   2) Leave ENDPOINT empty: submitting opens the guest's email app with a
+      pre-filled message addressed to EMAIL below. Set EMAIL to yours. */
+window.WEDDING_FORMS = {
+  ENDPOINT: "",                                  // <- paste Formspree URL here
+  EMAIL: "harrisonsetsail@gmail.com"             // <- fallback mailto address
+};
+
+async function sendWeddingForm(subject, data){
+  const cfg = window.WEDDING_FORMS;
+  if (cfg.ENDPOINT) {
+    const res = await fetch(cfg.ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ _subject: subject, ...data })
+    });
+    if (!res.ok) throw new Error("Submission failed");
+    return "sent";
+  }
+  // mailto fallback
+  const lines = [];
+  (function flat(obj, prefix){
+    for (const [k,v] of Object.entries(obj)){
+      if (v && typeof v === "object") flat(v, prefix + k + " ");
+      else lines.push(`${prefix}${k}: ${v}`);
+    }
+  })(data, "");
+  const href = `mailto:${cfg.EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  window.location.href = href;
+  return "mailto";
+}
+
+</script>
+<script>
+(() => {
+  const EVENTS = [
+    ['welcomeParty', '🌺', 'Welcome Party'],
+    ['bingo',        'Ⓑ', 'Bingo'],
+    ['pickleball',   '🏓', 'Pickleball'],
+    ['wedding',      '💍', 'Wedding']
+  ];
+  const guestsWrap = document.querySelector('#guests');
+  const countSel   = document.querySelector('#guest-count');
+  const form       = document.querySelector('#rsvp-form');
+  const status     = document.querySelector('#rsvp-status');
+
+  function guestBlock(i){
+    const el = document.createElement('section');
+    el.className = 'guest-card';
+    el.dataset.guest = i;
+    el.innerHTML = `
+      <span class="guest-tag">GUEST ${i}</span>
+      <div class="guest-names">
+        <label>First name<input name="g${i}-first" ${i===1?'required':''} autocomplete="given-name"></label>
+        <label>Last name<input name="g${i}-last" autocomplete="family-name"></label>
+      </div>
+      <p class="guest-events-title">PLEASE RSVP TO EACH EVENT</p>
+      <div class="event-grid">
+        ${EVENTS.map(([key, ico, name]) => `
+          <div class="event-cell" data-event="${key}">
+            <div class="ev-name"><span class="ev-ico">${ico}</span>${name}</div>
+            <button type="button" class="ev-btn yes">Yes, I'm in!</button>
+            <button type="button" class="ev-btn no">No, can't make it</button>
+          </div>`).join('')}
+      </div>
+      <div class="bingo-clue">
+        <h3>YOUR BINGO CLUE</h3>
+        <p>Share one surprising or fun fact about yourself.</p>
+        <textarea name="g${i}-bingo" rows="3"></textarea>
+      </div>`;
+    el.querySelectorAll('.event-cell').forEach(cell => {
+      const yes = cell.querySelector('.yes'), no = cell.querySelector('.no');
+      yes.addEventListener('click', () => { yes.classList.add('on'); no.classList.remove('on'); });
+      no.addEventListener('click',  () => { no.classList.add('on');  yes.classList.remove('on'); });
+    });
+    return el;
+  }
+
+  function render(n){
+    const saved = new Map();
+    guestsWrap.querySelectorAll('.guest-card').forEach(c => saved.set(c.dataset.guest, c));
+    guestsWrap.innerHTML = '';
+    for (let i = 1; i <= n; i++) guestsWrap.appendChild(saved.get(String(i)) || guestBlock(i));
+  }
+  countSel.addEventListener('change', () => render(+countSel.value));
+  render(+countSel.value);
+
+  /* pre-fill guest 1 from the welcome gate */
+  const stored = (localStorage.getItem('weddingGuestName') || '').trim();
+  if (stored) {
+    const parts = stored.split(/\s+/);
+    const f = form.querySelector('[name="g1-first"]'), l = form.querySelector('[name="g1-last"]');
+    if (f && !f.value) f.value = parts.shift() || '';
+    if (l && !l.value) l.value = parts.join(' ');
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = {};
+    let anyName = false;
+    guestsWrap.querySelectorAll('.guest-card').forEach(card => {
+      const i = card.dataset.guest;
+      const first = card.querySelector(`[name="g${i}-first"]`).value.trim();
+      const last  = card.querySelector(`[name="g${i}-last"]`).value.trim();
+      if (first || last) anyName = true;
+      const g = { Name: `${first} ${last}`.trim() || '(no name given)' };
+      card.querySelectorAll('.event-cell').forEach(cell => {
+        const label = cell.querySelector('.ev-name').textContent.trim();
+        const yes = cell.querySelector('.yes').classList.contains('on');
+        const no  = cell.querySelector('.no').classList.contains('on');
+        g[label] = yes ? "Yes, I'm in!" : no ? "No, can't make it" : '(no answer)';
+      });
+      const clue = card.querySelector(`[name="g${i}-bingo"]`).value.trim();
+      if (clue) g['Bingo clue'] = clue;
+      data[`Guest ${i}`] = g;
+    });
+    if (!anyName) { status.textContent = 'Please tell us at least one guest name.'; return; }
+    const note = form.querySelector('#rsvp-message').value.trim();
+    if (note) data['Message'] = note;
+    status.textContent = 'Sending your RSVP…';
+    try {
+      const how = await sendWeddingForm('Wedding RSVP', data);
+      status.textContent = how === 'sent'
+        ? "You're on the guest list! We can't wait to celebrate with you. ⚓"
+        : 'Almost there — hit send in the email that just opened.';
+    } catch (_) {
+      status.textContent = 'Hmm, that didn’t go through. Please try again.';
+    }
+  });
+})();
+
+</script>
 </body></html>

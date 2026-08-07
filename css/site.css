@@ -562,3 +562,23 @@ body{background:var(--cream);color:var(--ink)}
 .corner-florals.story-page .fl-tr{width:clamp(100px,15vw,195px)}
 .corner-florals.story-page .fl-bl{width:clamp(95px,14vw,180px)}
 .corner-florals.story-page .fl-br{width:clamp(100px,15vw,190px)}
+
+/* ============================================================
+   v25 — travel hero image + swapped FAQ row
+   ============================================================ */
+.faq-row-overlay{position:absolute;z-index:9;display:flex;align-items:center;justify-content:space-between;gap:6px;background:#fdfaf2;border:1px solid #e3d6be;border-radius:8px;padding:0 1.1%;cursor:pointer;text-align:left;box-shadow:0 1px 3px rgba(80,60,30,.06)}
+.faq-row-overlay .q{font:400 clamp(8px,1.05vw,15px)/1.15 Arial,sans-serif;color:#2f2a24}
+.faq-row-overlay .chev{color:#6b5c45;font-size:clamp(9px,1.1vw,15px);flex:none}
+.faq-row-overlay:hover{background:#fff}
+.faq-answer p{white-space:pre-line}
+
+/* ============================================================
+   v26 — RSVP linen background, fine print, gift frame lines
+   ============================================================ */
+.rsvp2-body{background:#f8f0de}
+.rsvp2-shell{background:#f8f0de}
+.rsvp2-fineprint{position:relative;z-index:2;text-align:center;font:italic 400 13px/1.5 Georgia,serif;color:#7c6b53;max-width:560px;margin:-30px auto 34px}
+.gift-frame{text-align:center}
+.gift-frame p{margin:0 auto 4px;max-width:640px;line-height:1.55;font-size:15.5px}
+.gift-frame .zelle-line{margin:2px auto 6px}
+.gift-frame .zelle{font-size:16.5px}
