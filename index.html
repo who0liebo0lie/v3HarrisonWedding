@@ -1,34 +1,42 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Julia & Wesley</title><link rel="stylesheet" href="css/site.css?v=22"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Julia & Wesley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=23"></head><body>
 
-<section class="gate-v2" id="welcome-gate" aria-labelledby="welcome-title">
-  <div class="gate-v2-inner corner-florals">
-    <img class="fl-tl" src="assets/rsvp-v19/top-left.png" alt="">
-    <img class="fl-tr" src="assets/rsvp-v19/top-right.png" alt="">
-    <img class="fl-bl" src="assets/rsvp-v19/bottom-left.png" alt="">
-    <img class="fl-br" src="assets/rsvp-v19/bottom-right.png" alt="">
-    <div class="gate-card">
-      <div class="welcome-anchor" aria-hidden="true">⚓</div>
-      <h1 id="welcome-title">Welcome to Julia &amp; Wesley's Wedding Adventure</h1>
-      <p class="gate-copy">We're so excited to share all the details for our wedding adventure. Including answering all questions along the way.</p>
-      <p class="gate-invited">Yes!! You're invited.</p>
-      <form id="welcome-form">
-        <div class="gate-people">
-          <div class="gate-person">
-            <span class="who">Wesley</span>
-            <img class="gate-portrait" src="assets/portraits/wesley.png" alt="Wesley">
-            <div class="gate-bubble">What's your first name?</div>
-            <label>First name<input id="first-name" name="firstName" autocomplete="given-name" required></label>
+<section class="gate3" id="welcome-gate" aria-labelledby="welcome-title">
+  <div class="gate3-card">
+    <button class="gate3-close" id="gate-close" type="button" aria-label="Close and view the website">×</button>
+    <img class="g3fl g3fl-tl" src="assets/florals/tl.png" alt="">
+    <img class="g3fl g3fl-tr" src="assets/florals/tr.png" alt="">
+    <img class="g3fl g3fl-bl" src="assets/florals/bl.png" alt="">
+    <img class="g3fl g3fl-br" src="assets/florals/br.png" alt="">
+    <img class="g3-photo g3-wes" src="assets/portraits/wesley-cutout.png" alt="Wesley">
+    <img class="g3-photo g3-jul" src="assets/portraits/julia-cutout.png" alt="Julia">
+    <div class="gate3-content">
+      <div class="g3-ornament">✿ <span class="anch">⚓</span> ✿</div>
+      <h1 id="welcome-title">Welcome to Julia &amp; Wesley's<span class="script">Wedding Adventure</span></h1>
+      <div class="g3-div">✿</div>
+      <p class="g3-copy">We're so excited to share all the details for our wedding adventure. Including answering all questions along the way.</p>
+      <div class="g3-div">♡</div>
+      <p class="g3-invited">Yes!! You're invited.</p>
+      <div class="g3-heart">♥</div>
+      <form id="welcome-form" novalidate>
+        <div class="g3-fields">
+          <div class="g3-field">
+            <div class="g3-bubble g3-bubble-l">First name first?</div>
+            <label for="first-name">FIRST NAME <span class="fl">✿</span></label>
+            <input id="first-name" name="firstName" autocomplete="given-name" placeholder="Enter your first name" required>
           </div>
-          <div class="gate-person">
-            <span class="who">Julia</span>
-            <img class="gate-portrait" src="assets/portraits/julia.png" alt="Julia">
-            <div class="gate-bubble">And your last name?</div>
-            <label>Last name<input id="last-name" name="lastName" autocomplete="family-name" required></label>
+          <div class="g3-field">
+            <div class="g3-bubble g3-bubble-r">And your last name?</div>
+            <label for="last-name">LAST NAME <span class="fl">✿</span></label>
+            <input id="last-name" name="lastName" autocomplete="family-name" placeholder="Enter your last name" required>
           </div>
         </div>
-        <button class="gate-btn" type="submit"><span aria-hidden="true">⚓</span> That's me!</button>
+        <button class="g3-btn" type="submit"><span class="anch" aria-hidden="true">⚓</span> THAT'S ME!</button>
       </form>
       <p class="welcome-error" id="welcome-error" aria-live="polite"></p>
+      <div class="g3-footer"><span class="gh">♡</span>We're so excited that you're here!</div>
     </div>
   </div>
 </section>
@@ -41,4 +49,24 @@
   <a href="travel.html">Travel</a>
   <a href="rsvp.html">RSVP</a>
 </nav>
-</main><script src="js/gate.js"></script></body></html>
+</main>
+
+<script>
+(function () {
+  var gate = document.getElementById('welcome-gate');
+  var err = document.getElementById('welcome-error');
+  function dismiss() { gate.hidden = true; window.scrollTo(0, 0); }
+  try { if (new URLSearchParams(location.search).has('skip')) { dismiss(); return; } } catch (_) {}
+  document.getElementById('gate-close').addEventListener('click', dismiss);
+  document.getElementById('welcome-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = document.getElementById('first-name').value.trim();
+    var l = document.getElementById('last-name').value.trim();
+    if (!f || !l) { err.textContent = 'Please enter both your first and last name.'; return; }
+    try { localStorage.setItem('weddingGuestName', f + ' ' + l); } catch (_) {}
+    dismiss();
+  });
+})();
+</script>
+<noscript><style>.gate3{display:none}</style></noscript>
+</body></html>

@@ -473,3 +473,54 @@ body{background:var(--cream);color:var(--ink)}
 .gift-frame .zelle{color:var(--pink);font-weight:700}
 .rsvp2-footer-anchor{position:relative;z-index:2;text-align:center;color:var(--gold);font-size:24px;margin-top:34px;letter-spacing:14px}
 @media(max-width:700px){.event-grid{grid-template-columns:repeat(2,1fr)}.guest-names{grid-template-columns:1fr}.rsvp2-bar{flex-direction:column;align-items:flex-start}}
+
+/* ============================================================
+   v23 — welcome gate rebuilt to match approved mock
+   ============================================================ */
+.gate3{position:fixed;inset:0;z-index:200;overflow:auto;display:grid;place-items:center;padding:26px 14px;background:rgba(24,15,20,.55)}
+.gate3[hidden]{display:none}
+.gate3-card{position:relative;width:min(1060px,97vw);background:#faf1e4;border:2px solid #cda13e;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden}
+.gate3-card::before{content:"";position:absolute;inset:7px;border:1px solid #cda13e99;border-radius:14px;pointer-events:none;z-index:4}
+.gate3-close{position:absolute;top:12px;right:14px;z-index:6;width:38px;height:38px;border-radius:50%;border:1px solid #cda13e;background:#fffdf7;color:#a4762a;font-size:20px;line-height:1;cursor:pointer}
+.g3fl{position:absolute;z-index:1;pointer-events:none}
+.g3fl-tl{top:-6px;left:-6px;width:clamp(90px,15%,175px)}
+.g3fl-tr{top:-6px;right:-6px;width:clamp(110px,19%,225px)}
+.g3fl-bl{bottom:-6px;left:-6px;width:clamp(100px,17%,200px)}
+.g3fl-br{bottom:-6px;right:-6px;width:clamp(105px,18%,215px)}
+.g3-photo{position:absolute;z-index:2;pointer-events:none;filter:drop-shadow(0 10px 24px rgba(60,25,20,.28))}
+.g3-wes{left:.5%;top:24%;width:24%}
+.g3-jul{right:.5%;top:30%;width:23%}
+.gate3-content{position:relative;z-index:3;max-width:640px;margin:0 auto;padding:clamp(26px,4vw,44px) 18px clamp(24px,3.4vw,38px);text-align:center;color:#233047}
+.g3-ornament{color:#b98a2c;font-size:22px;letter-spacing:8px}
+.g3-ornament .anch{font-size:26px}
+.gate3-content h1{margin:10px 0 2px;font:700 clamp(24px,3.6vw,38px)/1.15 "Playfair Display",Georgia,serif;color:#1e2f4d}
+.gate3-content h1 .script{display:block;font:400 clamp(38px,6vw,60px)/1.1 "Great Vibes",cursive;color:#c2185b;margin-top:2px}
+.g3-div{display:flex;align-items:center;justify-content:center;gap:10px;color:#c2185b;margin:8px 0}
+.g3-div::before,.g3-div::after{content:"";height:1px;width:min(90px,14vw);background:#cda13e88}
+.g3-copy{max-width:460px;margin:4px auto 2px;font:400 clamp(15px,1.7vw,17.5px)/1.55 Arial,sans-serif;color:#2c3a52}
+.g3-invited{font:600 clamp(24px,3.2vw,34px)/1.2 "Playfair Display",Georgia,serif;color:#8a6a1f;margin:8px 0 0}
+.g3-heart{color:#e0355f;font-size:20px;margin:4px 0 8px}
+.g3-fields{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,4vw,60px);max-width:560px;margin:6px auto 18px;text-align:left}
+.g3-field{position:relative;padding-top:64px}
+.g3-bubble{position:absolute;top:0;background:#fdf6ec;border:1px solid #dfa4b4;border-radius:16px;padding:8px 14px;font:400 clamp(15px,1.7vw,18px)/1.25 "Great Vibes",cursive;font-size:clamp(17px,1.9vw,21px);color:#8f2747;box-shadow:0 4px 12px rgba(120,40,60,.12);white-space:nowrap}
+.g3-bubble::after{content:"↷";position:absolute;bottom:-24px;font-size:20px;color:#c2185b;transform:rotate(64deg)}
+.g3-bubble-l{left:0}.g3-bubble-l::after{left:16px}
+.g3-bubble-r{right:0}.g3-bubble-r::after{right:22px;transform:rotate(118deg) scaleX(-1)}
+.g3-field label{display:block;font:700 12px/1 Arial,sans-serif;letter-spacing:.12em;color:#1e2f4d;margin-bottom:7px}
+.g3-field label .fl{color:#c9932f}
+.g3-field input{display:block;width:100%;padding:13px 15px;border:1.5px solid #b7546e;border-radius:12px;background:#fffaf2;font:400 16px Arial,sans-serif;color:#233047}
+.g3-field input::placeholder{color:#9a8a76}
+.g3-field input:focus{outline:2px solid #c2185b55;border-color:#c2185b}
+.g3-btn{display:inline-flex;align-items:center;gap:10px;border:2px solid #e2bc5e;border-radius:999px;padding:15px 44px;background:linear-gradient(180deg,#c01455,#8f0d3f);color:#fff;font:800 clamp(15px,1.8vw,19px)/1 Arial,sans-serif;letter-spacing:.1em;cursor:pointer;box-shadow:0 12px 26px rgba(143,13,63,.4)}
+.g3-btn:hover{filter:brightness(1.08)}
+.g3-btn .anch{color:#f2d98a}
+.gate3 .welcome-error{color:#a61b42;min-height:1.3em;margin:10px 0 0;font:600 14px Arial,sans-serif}
+.g3-footer{max-width:560px;margin:14px auto 0;border:1.5px dashed #d81b60;border-radius:12px;padding:10px 16px;font:400 clamp(22px,2.6vw,28px)/1.2 "Great Vibes",cursive;color:#c2185b}
+.g3-footer .gh{color:#c9932f;margin-right:10px}
+@media(max-width:900px){.g3-wes{width:21%;top:30%}.g3-jul{width:20%;top:35%}.gate3-content{max-width:560px}}
+@media(max-width:680px){.g3-photo{display:none}.g3-fields{grid-template-columns:1fr;gap:14px}.g3-field{padding-top:56px}.g3-bubble{white-space:normal}}
+
+/* serif/script fonts for rebuilt pages when Google Fonts are available */
+.story-inner h1{font-family:"Great Vibes",Georgia,cursive;font-style:normal;font-weight:400}
+.story-inner h2,.rsvp2-head h1{font-family:"Playfair Display",Georgia,serif}
+.rsvp2-script,.gift-frame h2{font-family:"Great Vibes",Georgia,cursive;font-style:normal}

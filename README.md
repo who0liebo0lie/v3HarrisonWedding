@@ -1,4 +1,4 @@
-# Harrison Set Sail — Wedding Website (v22)
+# Harrison Set Sail — Wedding Website (v23)
 
 Static site: open `index.html` (or host the folder on GitHub Pages / Netlify).
 
@@ -17,3 +17,11 @@ Static site: open `index.html` (or host the folder on GitHub Pages / Netlify).
 Edit **`js/forms.js`** (top of the file):
 1. **Best:** create a free form at [formspree.io](https://formspree.io), paste its URL into `ENDPOINT`. Submissions then arrive in your inbox/dashboard automatically.
 2. **Or** leave `ENDPOINT` empty and set `EMAIL` to your address — submitting opens the guest's email app with the answers pre-filled (they must press send).
+
+## v23 fixes
+- Welcome sign-in fully rebuilt to match the approved mock: gold-framed cream card, Playfair/Great Vibes fonts, cut-out photos of Wesley (left) and Julia (right), script speech bubbles pointing to the FIRST NAME / LAST NAME fields, "THAT'S ME!" button, dashed "We're so excited that you're here!" footer, and an X to close.
+- The sign-in script is now **inline in index.html** — it cannot break if a JS file is missing, and the X button always lets guests through.
+- New transparent floral corner art (`assets/florals/`) replaces the old corner images that had a navy border baked in (this is what caused the blocky rectangles).
+
+## ⚠️ When deploying to GitHub Pages
+Upload **the entire folder** — including `css/`, `js/`, `assets/approved/`, `assets/florals/`, `assets/portraits/`, and `assets/neighborhoods/`. If `js/` or `assets/` files are missing on the server, forms and images will silently break.
