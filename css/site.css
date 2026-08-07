@@ -619,3 +619,11 @@ body{background:var(--cream);color:var(--ink)}
 .story-copy{margin:14px auto 0;max-width:540px;font-size:clamp(14px,1.5vw,16px);line-height:1.45}
 .story-heart-divider{margin:12px 0 2px}
 .story-inner h2{font-size:clamp(24px,3vw,33px);margin:6px 0 4px}
+
+/* ============================================================
+   v30 FIX — the corner-floral WRAPPER must stay clickable;
+   only the floral images themselves ignore the mouse.
+   (This was silently blocking every click on the RSVP page.)
+   ============================================================ */
+.corner-florals{pointer-events:auto}
+.corner-florals>img{pointer-events:none}
