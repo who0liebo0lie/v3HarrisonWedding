@@ -765,3 +765,27 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
   .venue-cards h3{font-size:15px;margin:7px 0 4px}
   .venue-cards p{font-size:12px;line-height:1.4}
 }
+
+/* ============================================================
+   v33 — gate scroll fix, travel pictograms, explore wrapper
+   ============================================================ */
+/* Gate: block flow so the card top is always reachable */
+.gate3{display:block;padding:26px 14px}
+.gate3-card{margin:0 auto}
+
+/* Travel included/not-included pictogram grid */
+.tv-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 2px}
+.tv-icons div{background:#fffdf7;border:1px solid #e8dcC3;border-radius:10px;padding:10px 6px;text-align:center;font:600 11.5px/1.3 Arial,sans-serif;color:#3d4a2e}
+.tv-icons div span{display:block;font-size:21px;margin-bottom:5px}
+.tv-icons-out{grid-template-columns:repeat(5,1fr)}
+.tv-icons-out div{color:#7a5c1f}
+.tv-icons-full{background:#fffdf7;border:1px solid #e8dcc3;border-radius:10px;padding:8px;text-align:center;font:600 12px Arial,sans-serif;color:#3d4a2e;margin-top:8px}
+.tv-icons-full span{margin-right:8px;font-size:18px}
+@media(max-width:900px){.tv-icons{grid-template-columns:repeat(4,1fr)}.tv-icons-out{grid-template-columns:repeat(3,1fr)}}
+
+/* Explore: overlays anchored to the artwork only */
+.art-wrap{position:relative}
+.explore-shell{position:relative}
+@media(max-width:760px){
+  .neighborhood-panel{display:none !important}
+}
