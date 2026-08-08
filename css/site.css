@@ -627,3 +627,103 @@ body{background:var(--cream);color:var(--ink)}
    ============================================================ */
 .corner-florals{pointer-events:auto}
 .corner-florals>img{pointer-events:none}
+
+/* ============================================================
+   v31 — batch: RSVP 3-event grid, gate mobile photos, story
+   translation, adventure script overlay, pickleball solo,
+   explore mobile, travel rebuild
+   ============================================================ */
+
+/* RSVP: pickleball removed from grid */
+.event-grid{grid-template-columns:repeat(3,1fr);max-width:560px;margin:0 auto}
+.rsvp2-pb-note{position:relative;z-index:2;text-align:center;font:italic 500 15px Georgia,serif;color:#6c5c45;margin:-8px auto 24px}
+.rsvp2-pb-note a{color:var(--pink);font-weight:700}
+
+/* Our Story: english translation line in bubble */
+.chat-bubble .translation{display:block;font:italic 400 .88em Georgia,serif;opacity:.92;margin-top:2px}
+
+/* Gate: photos visible on mobile */
+.g3-photos{display:contents}
+@media(max-width:680px){
+  .g3-photos{display:flex;justify-content:center;gap:26px;margin:2px 0 10px}
+  .g3-photo{display:block;position:static;width:108px;height:108px;object-fit:cover;object-position:top;border-radius:50%;border:3px solid #fff;box-shadow:0 6px 16px rgba(60,25,20,.25)}
+}
+
+/* Adventure: script line overlay (replaces damaged baked text) */
+.adv-script{position:absolute;z-index:8;left:0;right:0;top:96.35%;text-align:center;font:400 clamp(20px,2.6vw,40px)/1 "Great Vibes",cursive;color:#d4487a;pointer-events:none;text-shadow:0 1px 0 #fff6}
+
+/* Pickleball: solo mode */
+#pb-p2-label[hidden]{display:none}
+button.hotspot{background:none;border:0;padding:0;cursor:pointer}
+
+/* Explore: mobile usability */
+.ship-interactive{touch-action:pan-y pinch-zoom}
+@media(max-width:760px){
+  .neighborhood-panel{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;height:auto;min-height:34.5%;position:absolute;overflow:auto}
+  .neighborhood-copy{padding:3.2vw 3.6vw 1.5vw}
+  .neighborhood-copy .eyebrow{font-size:2.6vw;letter-spacing:.14em}
+  .neighborhood-copy h2{font-size:5.6vw;margin:1vw 0 1.6vw;line-height:1.05}
+  .neighborhood-copy p{font-size:3.1vw;line-height:1.45}
+  #n-image{width:100%;height:26vw;object-fit:cover}
+  .venue-heading{font-size:3.4vw;padding:1.6vw}
+  .venue-cards{grid-template-columns:1fr 1fr;gap:1.8vw;padding:2vw 2.6vw 3vw}
+  .venue-cards article{padding:2.4vw}
+  .venue-cards span{font-size:2.2vw;padding:.7vw 1.6vw}
+  .venue-cards h3{font-size:3.4vw;margin:1.4vw 0 .8vw}
+  .venue-cards p{font-size:2.7vw}
+}
+
+/* ---- Travel rebuild ---- */
+.tv-body{background:#0b2f47;color:var(--ink)}
+.tv-wrap{max-width:1240px;margin:0 auto;padding:22px 14px 46px;background:
+ linear-gradient(180deg,#0b2f47,#0a2a40)}
+.tv-row{display:grid;gap:18px;margin-bottom:18px}
+.tv-row-steps{grid-template-columns:30% 1fr}
+.tv-row-info{grid-template-columns:1fr 1.15fr 1fr}
+.tv-card{background:#fdf8ee;border-radius:16px;padding:22px 22px 24px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.tv-step-label{font:700 12px/1 Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#b98a2c;text-align:center;margin:0 0 8px}
+.tv-card h2{font:600 clamp(20px,2vw,26px)/1.2 "Playfair Display",Georgia,serif;text-align:center;margin:0 0 10px;color:#233047}
+.tv-h-pink{color:var(--pink)!important;font-size:clamp(17px,1.6vw,20px)!important;text-align:left!important}
+.tv-h-olive{color:var(--olive)!important;font-size:clamp(17px,1.6vw,20px)!important}
+.tv-h-gold{color:#b98a2c!important;font-size:clamp(15px,1.4vw,18px)!important}
+.tv-h-second{margin-top:16px!important}
+.tv-intro{text-align:center;margin:0 0 14px;font-size:15px;color:#4c4235}
+.tv-card p{line-height:1.55;font-size:14.5px}
+.tv-aj-logo{display:block;width:min(200px,80%);margin:6px auto 16px}
+.tv-btn{display:block;text-align:center;margin:10px auto 0;max-width:240px;border:1.6px solid var(--pink);border-radius:999px;padding:11px 18px;color:var(--pink);font:700 14px Arial,sans-serif;text-decoration:none}
+.tv-btn:hover{background:#d81b6012}
+.tv-btn-solid{background:linear-gradient(120deg,#b1114b,var(--pink));color:#fff;border:0;box-shadow:0 8px 20px rgba(216,27,96,.35)}
+.tv-btn-solid:hover{filter:brightness(1.07);background:linear-gradient(120deg,#b1114b,var(--pink))}
+.tv-btn-big{max-width:300px;padding:15px 24px;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+.tv-rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tv-rooms article{background:#fff;border:1px solid #ead9bd;border-radius:12px;overflow:hidden;text-align:center;padding-bottom:12px}
+.tv-rooms img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.tv-rooms h3{font:600 17px/1 "Playfair Display",Georgia,serif;margin:10px 6px 6px}
+.tv-rooms p{font-size:12.5px;line-height:1.45;margin:0 10px 6px}
+.tv-price{color:#4c4235}
+.tv-price strong{display:block;font:700 22px/1.1 Georgia,serif;color:var(--pink)}
+.tv-foot{text-align:center;font-size:12.5px;color:#6c5c45;margin:14px 0 0}
+.tv-list{color:#3d362d}
+.tv-timeline{list-style:none;margin:0;padding:0}
+.tv-timeline li{padding:8px 0 8px 26px;position:relative;font-size:14px;line-height:1.5;border-bottom:1px dashed #e3d2b4}
+.tv-timeline li:last-child{border-bottom:0}
+.tv-timeline li::before{content:"⚓";position:absolute;left:0;top:9px;color:var(--pink);font-size:13px}
+.tv-caution{margin-top:12px;padding:10px 12px;background:#fdeef4;border:1px solid #f1b8cd;border-radius:10px;font:italic 500 13.5px/1.5 Georgia,serif;color:#8f2747}
+.tv-faqs{background:#fdf8ee;border-radius:16px;padding:24px 22px;box-shadow:0 8px 22px rgba(0,0,0,.22);margin-bottom:18px}
+.tv-faq-title{font:600 clamp(20px,2.2vw,26px)/1 "Playfair Display",Georgia,serif;color:#233047;text-align:center;margin:0 0 18px}
+.tv-faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;align-items:start}
+.tv-faqs details{background:#fffdf7;border:1px solid #e6d5b8;border-radius:12px;padding:0 14px;margin-bottom:10px}
+.tv-faqs summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 0;font:600 14.5px/1.35 Arial,sans-serif;color:#2f2a24}
+.tv-faqs summary::after{content:"⌄";color:#6b5c45;flex:none;transition:transform .2s}
+.tv-faqs details[open] summary::after{transform:rotate(180deg)}
+.tv-faqs details p{margin:0 0 13px;font-size:14px;line-height:1.55;color:#463d31}
+.tv-cta{text-align:center;background:transparent;color:#f3ead9;padding:14px 10px 0}
+.tv-cta h2{font:600 clamp(20px,2.2vw,27px)/1.2 "Playfair Display",Georgia,serif;color:#f0d98f;margin:0 0 8px}
+.tv-cta p{max-width:480px;margin:0 auto 6px;line-height:1.5}
+.tv-cta .tv-btn-big{margin-top:14px}
+.tv-script{font:400 clamp(22px,2.6vw,30px)/1.2 "Great Vibes",cursive;color:#f2b8cf;margin-top:16px}
+@media(max-width:900px){
+  .tv-row-steps,.tv-row-info{grid-template-columns:1fr}
+  .tv-rooms{grid-template-columns:1fr 1fr}
+  .tv-faq-cols{grid-template-columns:1fr}
+}

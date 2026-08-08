@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=30"></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=31"></head>
 <body class="rsvp2-body">
 <nav class="site-nav" aria-label="Primary navigation">
   <a class="sn-logo" href="index.html?skip=1"><span class="word">HARRISON</span><span class="script">Set Sail</span><span class="anch">⚓</span></a>
@@ -30,6 +30,8 @@
 
     <div id="guests"></div>
 
+    <p class="rsvp2-pb-note">🏓 Playing pickleball? Register your team separately on the <a href="pickleball.html">Pickleball page</a>!</p>
+
     <div class="rsvp2-note">
       <label for="rsvp-message">Anything else you'd like us to know? (Optional)</label>
       <textarea id="rsvp-message" rows="3" placeholder="We are beyond excited to celebrate with you in paradise!"></textarea>
@@ -45,7 +47,7 @@
     <h2>Your presence is the present</h2>
     <p>Celebrating with you is more than enough, and no gift is expected.</p>
     <p>For anyone who would still like to contribute, gifts may be sent by Zelle to</p>
-    <p class="zelle-line"><span class="zelle">"HarrisonSetSail"</span></p>
+    <p class="zelle-line"><span class="zelle">gifts@harrisonssetsail.com</span></p>
     <p>Please include your name in the memo</p>
     <p>because we are against random acts of untraceable generosity.</p>
   </section>
@@ -63,7 +65,7 @@
      opens the guest's email app with answers pre-filled.     */
 window.WEDDING_FORMS = {
   ENDPOINT: "https://script.google.com/macros/s/AKfycbxVf1ZDeSEh_ztoROJPpk6vu4GM1yVqFbLHAfWf9PSdr5CPomlBOaf2r0D9dfgJoxn3/exec",
-  EMAIL: "harrisonsetsail@gmail.com"
+  EMAIL: "harrisonssetsail@gmail.com"
 };
 
 /* Which invitation link was used (?g=smith-family) — remembered
@@ -119,7 +121,6 @@ async function sendWeddingForm(subject, data, type) {
   const EVENTS = [
     ['welcomeParty', '🌺', 'Welcome Party'],
     ['bingo',        'Ⓑ', 'Bingo'],
-    ['pickleball',   '🏓', 'Pickleball'],
     ['wedding',      '💍', 'Wedding']
   ];
   const guestsWrap = document.querySelector('#guests');

@@ -2,7 +2,6 @@
   const EVENTS = [
     ['welcomeParty', '🌺', 'Welcome Party'],
     ['bingo',        'Ⓑ', 'Bingo'],
-    ['pickleball',   '🏓', 'Pickleball'],
     ['wedding',      '💍', 'Wedding']
   ];
   const guestsWrap = document.querySelector('#guests');

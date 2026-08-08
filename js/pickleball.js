@@ -23,6 +23,20 @@
     }
   });
 
+
+  /* "Pair me up" = solo mode: only one name field */
+  const p2label = document.querySelector('#pb-p2-label');
+  const sub = document.querySelector('.pb-sub');
+  function setSolo(on){
+    p2label.hidden = on;
+    sub.textContent = on
+      ? "Flying solo? Perfect — give us your name and we'll pair you up with a partner!"
+      : "You + your partner = one amazing team. Flying solo? One name is all we need — we'll pair you up!";
+    document.querySelector('#pb-register-form').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  document.querySelector('#pb-pair-up').addEventListener('click', () => setSolo(true));
+  document.querySelector('#pb-team-up').addEventListener('click', () => setSolo(false));
+
   /* Clickable FAQ */
   const pop = document.querySelector('#faq-pop');
   const popQ = pop.querySelector('h3');
