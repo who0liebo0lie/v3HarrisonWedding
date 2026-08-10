@@ -863,7 +863,7 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
    ============================================================ */
 .fq-gold2{color:#a97d1f}
 .pg-note{font:italic 400 14px/1.6 Georgia,serif;color:#5d4a2e;margin:4px 2px}
-.faq-hero img{object-position:50% 30%}
+.faq-hero img{object-position:50% 0%}
 
 /* wedding-day note: match page theme */
 .wd-note{background:#f8f1e2;padding:20px 18px 26px;text-align:center;font:italic 500 clamp(15px,1.6vw,18px)/1.6 Georgia,serif;color:#b3403a}
