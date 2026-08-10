@@ -856,3 +856,19 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 .faq-foot .fscript{font:400 22px "Great Vibes",cursive;color:#c2185b}
 @media(max-width:860px){.faq-cols{grid-template-columns:1fr}.faq-cats{grid-template-columns:repeat(2,1fr)}.fa-row{grid-template-columns:1fr}}
 .wd-note{max-width:1600px;margin:0 auto;background:#fbe3ec;text-align:center;padding:14px 18px;font:600 15px/1.5 Arial,sans-serif;color:#8f2747}
+
+/* ============================================================
+   v37 — FAQ additions, wedding-day note aesthetic,
+   explore neighborhood buttons clickable
+   ============================================================ */
+.fq-gold2{color:#a97d1f}
+.pg-note{font:italic 400 14px/1.6 Georgia,serif;color:#5d4a2e;margin:4px 2px}
+.faq-hero img{object-position:50% 30%}
+
+/* wedding-day note: match page theme */
+.wd-note{background:#f8f1e2;padding:20px 18px 26px;text-align:center;font:italic 500 clamp(15px,1.6vw,18px)/1.6 Georgia,serif;color:#b3403a}
+.wd-note::before{content:"— ✿ —";display:block;font-style:normal;color:#c9932f;letter-spacing:6px;margin-bottom:8px;font-size:14px}
+
+/* explore: neighborhood labels must sit above the drag stage */
+.neighborhood{z-index:24 !important}
+.ship-interactive{z-index:5}
