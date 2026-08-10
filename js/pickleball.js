@@ -37,14 +37,4 @@
   document.querySelector('#pb-pair-up').addEventListener('click', () => setSolo(true));
   document.querySelector('#pb-team-up').addEventListener('click', () => setSolo(false));
 
-  /* Clickable FAQ */
-  const pop = document.querySelector('#faq-pop');
-  const popQ = pop.querySelector('h3');
-  const popA = pop.querySelector('p');
-  document.querySelectorAll('.pb-faq').forEach(b => b.addEventListener('click', () => {
-    popQ.textContent = b.dataset.q;
-    popA.textContent = b.dataset.a;
-    pop.hidden = false;
-  }));
-  pop.querySelector('.faq-close').addEventListener('click', () => pop.hidden = true);
 })();

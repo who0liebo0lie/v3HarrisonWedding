@@ -1,8 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=35"></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=36"></head>
 <body class="rsvp2-body">
 <nav class="site-nav" aria-label="Primary navigation">
   <a class="sn-logo" href="index.html?skip=1"><span class="word">HARRISONS</span><span class="script">Set Sail</span><span class="anch">⚓</span></a>
-  <div class="sn-links"><a href="index.html?skip=1">Home</a><a href="our-story.html">Our Story</a><a href="adventure.html">The Adventure</a><a href="explore.html">Explore</a><a href="travel.html">Travel</a><a href="rsvp.html" aria-current="page">RSVP</a></div>
+  <div class="sn-links"><a href="index.html?skip=1">Home</a><a href="our-story.html">Our Story</a><a href="adventure.html">The Adventure</a><a href="explore.html">Explore</a><a href="travel.html">Travel</a><a href="faq.html">FAQ</a><a href="rsvp.html" aria-current="page">RSVP</a></div>
   <a class="sn-badge" href="index.html?skip=1" aria-label="Home">⚓</a>
 </nav>
 <main class="rsvp2-shell corner-florals">
@@ -39,11 +39,6 @@
       <textarea id="rsvp-message" rows="3" placeholder="We are beyond excited to celebrate with you in paradise!"></textarea>
     </div>
 
-    <div class="rsvp2-submit"><button type="submit"><span aria-hidden="true">⚓</span> Submit my RSVP</button></div>
-    <p class="rsvp2-fineprint">Personalized invitation links are used to confirm invitation delivery, manage attendance, and connect RSVP responses with the correct guest or household.</p>
-    <p class="rsvp2-status" id="rsvp-status" role="status" aria-live="polite"></p>
-  </form>
-
   <section class="gift-frame" aria-label="Gifts">
     <div class="gift-fl" aria-hidden="true">✿</div>
     <h2>Your presence is the present</h2>
@@ -54,6 +49,12 @@
     <p>because we are against random acts of untraceable generosity.</p>
     <p class="gift-note">With limited cabin and luggage space, transporting physical gifts home would be quite the adventure. Please don't bring gifts aboard since we're just thrilled to celebrate with you.</p>
   </section>
+
+    <div class="rsvp2-submit"><button type="submit"><span aria-hidden="true">⚓</span> Submit my RSVP</button></div>
+    <p class="rsvp2-fineprint">Personalized invitation links are used to confirm invitation delivery, manage attendance, and connect RSVP responses with the correct guest or household.</p>
+    <p class="rsvp2-status" id="rsvp-status" role="status" aria-live="polite"></p>
+  </form>
+
 
   <div class="rsvp2-footer-anchor" aria-hidden="true">✿ ⚓ ✿</div>
 </main>
@@ -191,14 +192,13 @@ async function sendWeddingForm(subject, data, type) {
       const last  = card.querySelector(`[name="g${i}-last"]`).value.trim();
       if (first || last) anyName = true;
       const g = { Name: `${first} ${last}`.trim() || '(no name given)' };
+      g['Bingo clue'] = card.querySelector(`[name="g${i}-bingo"]`).value.trim();
       card.querySelectorAll('.event-cell').forEach(cell => {
         const label = cell.querySelector('.ev-name').textContent.trim();
         const yes = cell.querySelector('.yes').classList.contains('on');
         const no  = cell.querySelector('.no').classList.contains('on');
         g[label] = yes ? "Yes, I'm in!" : no ? "No, can't make it" : '(no answer)';
       });
-      const clue = card.querySelector(`[name="g${i}-bingo"]`).value.trim();
-      if (clue) g['Bingo clue'] = clue;
       data[`Guest ${i}`] = g;
     });
     if (!anyName) { status.textContent = 'Please tell us at least one guest name.'; return; }

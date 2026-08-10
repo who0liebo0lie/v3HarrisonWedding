@@ -819,3 +819,40 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 .tv-row-info{grid-template-columns:1.25fr 1fr}
 /* explore: cover baked panel fully (kills phantom slivers) */
 .neighborhood-panel{height:37.5%}
+
+/* ============================================================
+   v36 — FAQ page, wedding-day note
+   ============================================================ */
+.faq-body{background:#f7efdc}
+.faq-wrap{position:relative;max-width:1600px;margin:0 auto;padding:clamp(14px,2.5vw,32px) 14px 60px;overflow:hidden}
+.faq-head{position:relative;z-index:2;text-align:center}
+.faq-head h1{font:600 clamp(40px,6vw,64px)/1 "Playfair Display",Georgia,serif;color:var(--pink);margin:8px 0 2px}
+.faq-script{font:400 clamp(22px,3vw,30px)/1.2 "Great Vibes",cursive;color:#c2185b;margin:4px 0 6px}
+.faq-sub{max-width:480px;margin:0 auto 16px;color:#3d362d}
+.faq-hero{position:relative;z-index:2;max-width:860px;margin:0 auto 22px;border-radius:20px;overflow:hidden;border:2px solid #cda13e;box-shadow:0 14px 40px rgba(80,40,30,.25)}
+.faq-hero img{display:block;width:100%;height:clamp(220px,34vw,380px);object-fit:cover;object-position:50% 22%}
+.faq-cats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:900px;margin:0 auto 26px}
+.fc{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;border-radius:16px;padding:18px 8px;font:700 14px/1.25 "Playfair Display",Georgia,serif;text-align:center;color:#4a3b2a;font-size:26px;box-shadow:0 6px 16px rgba(120,70,40,.12)}
+.fc span{font-size:14px}
+.fc-pink{background:#fbe3ec}.fc-orange{background:#fdeadb}.fc-rose{background:#fbe0dd}.fc-gold{background:#f6ecd2}
+.faq-cols{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:1100px;margin:0 auto 30px;align-items:start}
+.faq-cols section{background:#fdf8ee;border:1px solid #e8d8bb;border-radius:16px;padding:16px 14px}
+.fq-h{font:700 17px/1.2 "Playfair Display",Georgia,serif;margin:0 0 10px;text-align:center}
+.fq-pink{color:var(--pink)}.fq-orange{color:#d97a1f}.fq-rose{color:#b3403a}
+.faq-cols details{background:#fffdf7;border:1px solid #e6d5b8;border-radius:12px;padding:0 12px;margin-bottom:8px}
+.faq-cols summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:11px 0;font:600 13.5px/1.35 Arial,sans-serif;color:#2f2a24}
+.faq-cols summary::after{content:"⌄";color:#6b5c45;flex:none;transition:transform .2s}
+.faq-cols details[open] summary::after{transform:rotate(180deg)}
+.faq-cols details p{margin:0 0 11px;font-size:13.5px;line-height:1.5;color:#463d31}
+.faq-cols details a{color:var(--pink);font-weight:700}
+.faq-ask{position:relative;z-index:2;max-width:760px;margin:0 auto;background:#fdf8ee;border:1px dashed #d81b60;border-radius:18px;padding:22px 20px;text-align:center}
+.faq-ask h2{font:600 clamp(20px,2.4vw,26px)/1.2 "Playfair Display",Georgia,serif;color:var(--pink);margin:0 0 4px}
+.faq-ask p{margin:0 0 14px}
+.fa-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.faq-ask input,.faq-ask textarea{width:100%;padding:12px 13px;border:1px solid #d5bda0;border-radius:12px;font:400 15px Georgia,serif;background:#fffdf7}
+.faq-ask button{margin-top:12px;border:0;border-radius:999px;background:linear-gradient(120deg,#b1114b,var(--pink));color:#fff;font:700 15px Georgia,serif;letter-spacing:.1em;text-transform:uppercase;padding:13px 34px;cursor:pointer;box-shadow:0 10px 24px rgba(216,27,96,.35)}
+.fa-status{margin:10px 0 0;font:italic 400 13.5px Georgia,serif;color:#7c6b53}
+.faq-foot{position:relative;z-index:2;text-align:center;margin:30px auto 0;color:#5d4a2e;line-height:1.7}
+.faq-foot .fscript{font:400 22px "Great Vibes",cursive;color:#c2185b}
+@media(max-width:860px){.faq-cols{grid-template-columns:1fr}.faq-cats{grid-template-columns:repeat(2,1fr)}.fa-row{grid-template-columns:1fr}}
+.wd-note{max-width:1600px;margin:0 auto;background:#fbe3ec;text-align:center;padding:14px 18px;font:600 15px/1.5 Arial,sans-serif;color:#8f2747}

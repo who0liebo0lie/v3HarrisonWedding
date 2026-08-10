@@ -69,14 +69,13 @@
       const last  = card.querySelector(`[name="g${i}-last"]`).value.trim();
       if (first || last) anyName = true;
       const g = { Name: `${first} ${last}`.trim() || '(no name given)' };
+      g['Bingo clue'] = card.querySelector(`[name="g${i}-bingo"]`).value.trim();
       card.querySelectorAll('.event-cell').forEach(cell => {
         const label = cell.querySelector('.ev-name').textContent.trim();
         const yes = cell.querySelector('.yes').classList.contains('on');
         const no  = cell.querySelector('.no').classList.contains('on');
         g[label] = yes ? "Yes, I'm in!" : no ? "No, can't make it" : '(no answer)';
       });
-      const clue = card.querySelector(`[name="g${i}-bingo"]`).value.trim();
-      if (clue) g['Bingo clue'] = clue;
       data[`Guest ${i}`] = g;
     });
     if (!anyName) { status.textContent = 'Please tell us at least one guest name.'; return; }
