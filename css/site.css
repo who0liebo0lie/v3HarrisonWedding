@@ -877,3 +877,8 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 .faq-cats{grid-template-columns:repeat(5,1fr);max-width:1100px}
 @media(max-width:860px){.faq-cats{grid-template-columns:repeat(2,1fr)}}
 .faq-hero{min-height:224px;background:#efe3cc}
+
+/* v41 — FAQ: full-height couple photo first, caption under tiles */
+.faq-hero{max-width:920px;margin:6px auto 26px;min-height:0}
+.faq-hero img{height:auto;object-fit:unset;object-position:unset;aspect-ratio:auto}
+.faq-browse{position:relative;z-index:2;text-align:center;font:italic 500 clamp(16px,1.8vw,20px)/1.5 Georgia,serif;color:#8a6a1f;max-width:640px;margin:0 auto 26px}
