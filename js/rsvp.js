@@ -85,9 +85,14 @@
     status.textContent = 'Sending your RSVP…';
     try {
       const how = await sendWeddingForm('Wedding RSVP', data, 'rsvp');
-      status.textContent = how === 'sent'
-        ? "You're on the guest list! We can't wait to celebrate with you. ⚓"
-        : 'Almost there — hit send in the email that just opened.';
+      const anyYes = !!guestsWrap.querySelector('.ev-btn.yes.on');
+      if (how !== 'sent') {
+        status.textContent = 'Almost there — hit send in the email that just opened.';
+      } else if (anyYes) {
+        status.textContent = "You're on the guest list! We can't wait to celebrate with you. ⚓";
+      } else {
+        status.textContent = "We'll miss celebrating with you, but we're so grateful to have you in our lives. 💛 A wedding is only one adventure, and we're looking forward to many more years of memories, laughter, and adventures together as friends.";
+      }
     } catch (_) {
       status.textContent = 'Hmm, that didn’t go through. Please try again.';
     }

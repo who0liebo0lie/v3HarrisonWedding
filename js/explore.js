@@ -14,5 +14,5 @@
  const stage=document.querySelector('#ship-interactive'),img=stage.querySelector('img'); let scale=1,rx=0,ry=0,down=false,x0=0,y0=0;
  const draw=()=>img.style.transform=`scale(${scale}) rotateX(${ry}deg) rotateY(${rx}deg)`;
  stage.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(1,Math.min(2.2,scale+(e.deltaY<0?.12:-.12)));draw()},{passive:false});
- stage.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;x0=e.clientX;y0=e.clientY;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!down)return;rx=Math.max(-16,Math.min(16,rx+(e.clientX-x0)*.08));ry=Math.max(-9,Math.min(9,ry-(e.clientY-y0)*.05));x0=e.clientX;y0=e.clientY;draw()});['pointerup','pointercancel','pointerleave'].forEach(evt=>stage.addEventListener(evt,()=>down=false));
+ stage.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;if(e.target.closest('.neighborhood'))return;down=true;x0=e.clientX;y0=e.clientY;});stage.addEventListener('pointermove',e=>{if(!down)return;rx=Math.max(-16,Math.min(16,rx+(e.clientX-x0)*.08));ry=Math.max(-9,Math.min(9,ry-(e.clientY-y0)*.05));x0=e.clientX;y0=e.clientY;draw()});['pointerup','pointercancel','pointerleave'].forEach(evt=>stage.addEventListener(evt,()=>down=false));
 })();

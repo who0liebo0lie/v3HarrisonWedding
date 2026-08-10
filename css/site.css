@@ -789,3 +789,33 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 @media(max-width:760px){
   .neighborhood-panel{display:none !important}
 }
+
+/* ============================================================
+   v34 — uniform nav, mobile floral clearance, full-bleed RSVP,
+   opaque gate, travel note, phantom-tile fix
+   ============================================================ */
+/* gate: opaque backdrop, nothing visible behind, no bypass */
+.gate3{background:rgba(24,15,20,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+
+/* RSVP full-bleed like Our Story */
+.rsvp2-shell{max-width:1600px}
+
+/* mobile: florals shrink and never sit under text */
+@media(max-width:760px){
+  .corner-florals .fl-tl,.corner-florals .fl-tr{width:88px}
+  .corner-florals .fl-bl,.corner-florals .fl-br{width:96px}
+  .rsvp2-head h1{max-width:70vw;margin-left:auto;margin-right:auto}
+  .gift-frame{padding:20px 12px 60px;max-width:calc(100% - 16px)}
+  .gift-frame p{max-width:78vw;margin-left:auto;margin-right:auto}
+  .g3fl-tl,.g3fl-tr{width:74px}
+  .g3fl-bl,.g3fl-br{width:84px}
+  .g3-footer{max-width:calc(100% - 90px);font-size:19px}
+  .story-inner{width:calc(100% - 8px)}
+  .story-inner h2,.story-copy{position:relative;z-index:3}
+}
+.gift-note{margin-top:10px!important;font-style:italic;color:#6c5c45}
+.tv-rsvp-note{background:#fdf8ee;border-radius:12px;padding:12px 16px;text-align:center;font:600 14.5px/1.4 Arial,sans-serif;color:#2f2a24;margin:0 0 16px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.tv-rsvp-note a{color:var(--pink)}
+.tv-row-info{grid-template-columns:1.25fr 1fr}
+/* explore: cover baked panel fully (kills phantom slivers) */
+.neighborhood-panel{height:37.5%}
