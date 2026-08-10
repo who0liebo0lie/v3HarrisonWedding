@@ -882,3 +882,34 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 .faq-hero{max-width:920px;margin:6px auto 26px;min-height:0}
 .faq-hero img{height:auto;object-fit:unset;object-position:unset;aspect-ratio:auto}
 .faq-browse{position:relative;z-index:2;text-align:center;font:italic 500 clamp(16px,1.8vw,20px)/1.5 Georgia,serif;color:#8a6a1f;max-width:640px;margin:0 auto 26px}
+
+/* ============================================================
+   v42 — travel/explore de-navy, venue tile spacing, RSVP
+   decline modal, FAQ hero hardening
+   ============================================================ */
+/* Travel: cream aesthetic instead of navy */
+.tv-body{background:#f7efdc}
+.tv-wrap{background:transparent}
+.tv-card,.tv-faqs,.tv-rsvp-note{box-shadow:0 8px 22px rgba(120,80,40,.14)}
+.tv-cta h2{color:#b98a2c}
+.tv-cta{color:#3d362d}
+.tv-cta p{color:#3d362d}
+.tv-script{color:#c2185b}
+
+/* Explore: panel covers all remaining navy below the ship */
+.neighborhood-panel{left:0;width:100%;top:61.8%;height:38.2%;border-radius:0;border-left:0;border-right:0;border-bottom:0}
+/* venue tiles: no stretched white space */
+.venue-cards{align-items:start;grid-auto-rows:min-content}
+.venue-cards article{height:auto;align-self:start;padding-bottom:14px}
+
+/* RSVP decline popup */
+.rsvp-modal{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(24,15,20,.6);backdrop-filter:blur(6px);padding:20px}
+.rsvp-modal[hidden]{display:none}
+.rsvp-modal-card{position:relative;width:min(560px,94vw);background:#fdf8ee;border:2px solid #cda13e;border-radius:22px;padding:38px 30px 30px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.rsvp-modal-card p{font:500 clamp(16px,2vw,19px)/1.65 Georgia,serif;color:#4a3b2a;margin:0}
+.rm-heart{font-size:34px;margin-bottom:10px}
+.rsvp-modal-close{position:absolute;top:10px;right:14px;border:0;background:none;font-size:26px;color:#b98a2c;cursor:pointer}
+
+/* FAQ hero: keep placeholder height until image paints */
+.faq-hero{min-height:200px;background:#efe3cc}
+.faq-hero img{height:auto}
