@@ -872,3 +872,8 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 /* explore: neighborhood labels must sit above the drag stage */
 .neighborhood{z-index:24 !important}
 .ship-interactive{z-index:5}
+
+/* v40 — five category cards in one row; hero frame keeps height while loading */
+.faq-cats{grid-template-columns:repeat(5,1fr);max-width:1100px}
+@media(max-width:860px){.faq-cats{grid-template-columns:repeat(2,1fr)}}
+.faq-hero{min-height:224px;background:#efe3cc}
