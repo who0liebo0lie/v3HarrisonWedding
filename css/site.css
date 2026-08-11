@@ -786,9 +786,8 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 /* Explore: overlays anchored to the artwork only */
 .art-wrap{position:relative}
 .explore-shell{position:relative}
-@media(max-width:760px){
-  .neighborhood-panel{display:none !important}
-}
+/* v47 — removed display:none: it hid the live panel on mobile, leaving the
+   Central Park panel that is painted into the artwork PNG (never updates). */
 
 /* ============================================================
    v34 — uniform nav, mobile floral clearance, full-bleed RSVP,
@@ -913,3 +912,41 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 /* FAQ hero: keep placeholder height until image paints */
 .faq-hero{min-height:200px;background:#efe3cc}
 .faq-hero img{height:auto}
+
+
+/* ============================================================
+   v47 — mobile explore panel overlays the artwork (like desktop),
+   FAQ hero shows the full photo, larger tap targets
+   ============================================================ */
+
+/* Explore (mobile): live panel covers the baked-in artwork panel */
+@media(max-width:760px){
+  .explore-shell .neighborhood-panel{
+    display:grid !important;
+    position:absolute !important;
+    left:0;top:61.8%;width:100%;height:38.2%;
+    margin:0;border:0;border-radius:0;
+    grid-template-columns:1fr;grid-template-rows:auto;grid-auto-rows:min-content;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    z-index:6;
+  }
+  .explore-shell .neighborhood-panel>img{grid-row:auto;width:100%;height:120px;object-fit:cover}
+  .explore-shell .neighborhood-copy{padding:12px 14px 6px}
+  .explore-shell .neighborhood-copy .eyebrow{font-size:10px;letter-spacing:.14em}
+  .explore-shell .neighborhood-copy h2{font-size:22px;margin:2px 0 6px;line-height:1.05}
+  .explore-shell .neighborhood-copy p{font-size:13px;line-height:1.45}
+  .explore-shell .venue-heading{font-size:13px;padding:8px}
+  .explore-shell .venue-cards{grid-template-columns:1fr 1fr;gap:8px;padding:8px 10px 14px}
+  .explore-shell .venue-cards article{padding:9px}
+  .explore-shell .venue-cards h3{font-size:14px;margin:6px 0 3px}
+  .explore-shell .venue-cards p{font-size:11.5px;line-height:1.35}
+  .explore-shell .venue-cards span{font-size:8px;padding:2px 6px}
+}
+/* touch devices: neighborhood labels get a finger-sized target */
+@media(pointer:coarse){
+  .explore-shell .neighborhood{min-height:30px}
+}
+
+/* FAQ hero: always render the full photo, hips to sky (1672x941) */
+.faq-wrap .faq-hero{max-width:920px;min-height:0}
+.faq-wrap .faq-hero img{width:100%;height:auto !important;object-fit:unset !important;object-position:unset !important;aspect-ratio:1672/941}

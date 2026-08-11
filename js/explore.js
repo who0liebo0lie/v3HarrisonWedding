@@ -10,7 +10,7 @@
  };
  const title=document.querySelector('#n-title'),copy=document.querySelector('#n-copy'),image=document.querySelector('#n-image'),heading=document.querySelector('#venue-heading'),cards=document.querySelector('#venue-cards');
  function show(key){const x=data[key]; title.textContent=x.title; copy.textContent=x.copy; image.src=`assets/neighborhoods/${x.image}`; image.alt=`${x.title} on Harmony of the Seas`; heading.textContent=`Venues in ${x.title}`; cards.innerHTML=x.venues.map(v=>`<article><span>${v[1]}</span><h3>${v[0]}</h3><p>${v[2]}</p></article>`).join(''); document.querySelectorAll('.neighborhood').forEach(b=>b.classList.toggle('active',b.dataset.neighborhood===key));}
- document.querySelectorAll('.neighborhood').forEach(b=>b.addEventListener('click',()=>show(b.dataset.neighborhood))); show('central');
+ document.querySelectorAll('.neighborhood').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.neighborhood);if(window.matchMedia('(max-width:760px)').matches){var p=document.getElementById('neighborhood-panel');if(p)p.scrollIntoView({behavior:'smooth',block:'nearest'});}})); show('central');
  const stage=document.querySelector('#ship-interactive'),img=stage.querySelector('img'); let scale=1,rx=0,ry=0,down=false,x0=0,y0=0;
  const draw=()=>img.style.transform=`scale(${scale}) rotateX(${ry}deg) rotateY(${rx}deg)`;
  stage.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(1,Math.min(2.2,scale+(e.deltaY<0?.12:-.12)));draw()},{passive:false});
