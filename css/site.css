@@ -913,7 +913,3 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 /* FAQ hero: keep placeholder height until image paints */
 .faq-hero{min-height:200px;background:#efe3cc}
 .faq-hero img{height:auto}
-
-/* v43 — FAQ hero: always full photo (sky to waists), slightly smaller */
-.faq-wrap .faq-hero{max-width:820px;min-height:0;background:transparent}
-.faq-wrap .faq-hero img{width:100% !important;height:auto !important;object-fit:contain !important;object-position:center !important;aspect-ratio:1672/941;display:block}
