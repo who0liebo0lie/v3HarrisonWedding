@@ -355,7 +355,7 @@ body{background:var(--cream);color:var(--ink)}
 
 /* ---- Corner florals for rebuilt pages ---- */
 .corner-florals{pointer-events:none}
-.corner-florals img{position:absolute;z-index:1;pointer-events:none}
+.corner-florals>.fl-tl,.corner-florals>.fl-tr,.corner-florals>.fl-bl,.corner-florals>.fl-br{position:absolute;z-index:1;pointer-events:none}
 .corner-florals .fl-tl{top:0;left:0;width:clamp(110px,17vw,220px)}
 .corner-florals .fl-tr{top:0;right:0;width:clamp(110px,17vw,220px)}
 .corner-florals .fl-bl{bottom:0;left:0;width:clamp(120px,18vw,235px)}
@@ -917,3 +917,6 @@ button.hotspot{background:none;border:0;padding:0;cursor:pointer}
 /* v43 — FAQ hero: always full photo (sky to waists), slightly smaller */
 .faq-wrap .faq-hero{max-width:820px;min-height:0;background:transparent}
 .faq-wrap .faq-hero img{width:100% !important;height:auto !important;object-fit:contain !important;object-position:center !important;aspect-ratio:1672/941;display:block}
+
+/* v45 — FAQ hero must stay in normal flow (guards against corner-floral rules) */
+.faq-wrap .faq-hero img{position:static !important;z-index:auto}
