@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=52"></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RSVP | Julia & Wesley</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/site.css?v=53"></head>
 <body class="rsvp2-body">
 <nav class="site-nav" aria-label="Primary navigation">
   <a class="sn-logo" href="index.html?skip=1"><span class="word">HARRISONS</span><span class="script">Set Sail</span><span class="anch">⚓</span></a>
@@ -182,14 +182,34 @@ async function sendWeddingForm(subject, data, type) {
     if (l && !l.value) l.value = parts.join(' ');
   }
 
-  /* ---------- modal helpers ---------- */
-  function showModal(id){ const m=document.getElementById(id); if(!m) return null; m.hidden=false; document.body.style.overflow='hidden'; return m; }
-  function hideModal(id){ const m=document.getElementById(id); if(!m) return; m.hidden=true; document.body.style.overflow=''; }
-  [['accept-close','accept-modal'],['accept-ok','accept-modal'],['decline-close','decline-modal'],['decline-ok','decline-modal'],['attest-close','attest-modal']]
-    .forEach(([btn,id])=>{ const b=document.getElementById(btn); if(b) b.addEventListener('click',()=>hideModal(id)); });
-  document.querySelectorAll('.rsvp-modal').forEach(m=>m.addEventListener('click',e=>{ if(e.target===m) hideModal(m.id); }));
-  const attestCheck=document.getElementById('attest-check'), attestConfirm=document.getElementById('attest-confirm');
-  if(attestCheck&&attestConfirm) attestCheck.addEventListener('change',()=>{ attestConfirm.disabled=!attestCheck.checked; });
+  /* ---------- modal helpers ----------
+     v53: the modals sit at the end of <body>, AFTER this script, so they do
+     not exist yet while this runs. Every lookup below is therefore lazy
+     (resolved at click/submit time) and the wiring waits for DOMContentLoaded.
+     Binding at load time silently produced null handles, which is why the
+     attestation checkbox never enabled the Submit button.                */
+  const $ = id => document.getElementById(id);
+  function showModal(id){ const m=$(id); if(!m) return null; m.hidden=false; document.body.style.overflow='hidden'; return m; }
+  function hideModal(id){ const m=$(id); if(!m) return; m.hidden=true; document.body.style.overflow=''; }
+  function syncAttest(){ const c=$('attest-check'), b=$('attest-confirm'); if(c&&b) b.disabled=!c.checked; }
+
+  function wireModals(){
+    [['accept-close','accept-modal'],['accept-ok','accept-modal'],
+     ['decline-close','decline-modal'],['decline-ok','decline-modal'],
+     ['attest-close','attest-modal']]
+      .forEach(([btn,id])=>{ const b=$(btn); if(b) b.addEventListener('click',()=>hideModal(id)); });
+    document.querySelectorAll('.rsvp-modal').forEach(m=>{
+      m.addEventListener('click',e=>{ if(e.target===m) hideModal(m.id); });
+    });
+    const c=$('attest-check');
+    if(c){ c.addEventListener('change',syncAttest); c.addEventListener('click',syncAttest); }
+    document.addEventListener('keydown',e=>{
+      if(e.key!=='Escape') return;
+      document.querySelectorAll('.rsvp-modal').forEach(m=>{ if(!m.hidden) hideModal(m.id); });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wireModals);
+  else wireModals();
 
   function collect(){
     const data={}; let anyName=false;
@@ -233,8 +253,10 @@ async function sendWeddingForm(subject, data, type) {
     if(anyYes){
       /* attestation gate: guests who are coming confirm the booking rules first */
       data['Booking attestation']='Confirmed: will book through Aligned Journeys links';
-      if(attestCheck) attestCheck.checked=false;
-      if(attestConfirm){ attestConfirm.disabled=true; attestConfirm.onclick=()=>{ hideModal('attest-modal'); send(data,true); }; }
+      const c=$('attest-check'), b=$('attest-confirm');
+      if(c) c.checked=false;
+      if(b){ b.disabled=true; b.onclick=()=>{ hideModal('attest-modal'); send(data,true); }; }
+      syncAttest();
       showModal('attest-modal');
     } else {
       send(data,false);
